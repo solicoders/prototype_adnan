@@ -4,7 +4,9 @@ chapitre: Backlog
 order: 2
 ---
 # Backlog
+
 <!-- new slide -->
+
 ## Structure des dossiers
 
 <!-- note -->
@@ -22,4 +24,5 @@ order: 2
   - Conclusion
     - conclusion.md
     - images
+
 <!-- new slide -->
