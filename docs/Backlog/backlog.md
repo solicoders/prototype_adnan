@@ -8,6 +8,7 @@ order: 2
 ## Structure des dossiers
 
 <!-- note -->
+
 - docs
   - index.md
   - presentation.md
@@ -18,11 +19,6 @@ order: 2
     - images
   - Backlog
     - Backlog.md
-  - DNS
-    - DNS.md
-    - images
-    - rapport.md
-    - présentation.md
   - Conclusion
     - conclusion.md
     - images
