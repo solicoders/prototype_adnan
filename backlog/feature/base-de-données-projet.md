@@ -1,0 +1,19 @@
+## Travail à faire
+
+Création de la table Projets avec les jeux de teste
+
+## Livrables
+
+- docs/projets/projets.md
+- docs/projets/images/*
+- app/app/Exports/projets/*
+- app/app/Imports/projets/*
+- app/app/Http/Controllers/projets/
+- app/app/Http/Requests/projets/
+- app/app/Models/projets/
+- app/app/Repositories/projets/
+- app/app/resources/views/projets/
+- app/routes/web.php
+- app/database/factories/projets/
+- app/database/migrations/projets/
+- app/database/seeders/projets/
