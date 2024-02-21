@@ -9,6 +9,7 @@ h1AndH2Elements.forEach(function (element) {
 
     // Create a new list item element
     const li = document.createElement('li');
+    console.log(element)
 
     // Create a new anchor element, set its href attribute to the corresponding element's id, set its text content to the element's text content, and insert the new anchor into the list item
     const newAnchor = document.createElement('a');
@@ -18,18 +19,14 @@ h1AndH2Elements.forEach(function (element) {
 
     // Append the anchor element to the list item
     li.appendChild(newAnchor);
-
     if (element.tagName === 'H2') {
-        // Create a new unordered list element
+        newAnchor.style.fontSize = "15px";
         const innerUl = document.createElement('ul');
-
-        // Append the list item to the inner unordered list
         innerUl.appendChild(li);
-
-        // Append the inner unordered list to the outer unordered list
         ul.appendChild(innerUl);
+
     } else {
-        // Append the list item to the unordered list
+        newAnchor.style.fontSize = "18px";
         ul.appendChild(li);
     }
 
