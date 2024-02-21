@@ -10,7 +10,6 @@ order: 1
 <!-- note -->
 Dans cette partie, nous avons realisé une application de gestion des projects.
 
-Dans cette application, nous avons réalisé un système de CRUD des tables Projets et Taches en utilisant le framework Laravel, avec autorisation pour apprentissage des competences  .
-
+Nous avons développé un système CRUD pour les entités Projets et Tâches en utilisant le framework Laravel, avec des fonctionnalités d'autorisation et authentification afin de faciliter l'apprentissage des compétences nécessaires à la manipulation efficace de ce framework.
 
 <!-- new slide -->
