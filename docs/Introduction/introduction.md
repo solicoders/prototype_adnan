@@ -1,11 +1,11 @@
 ---
 layout: default
-chapter: Introduction
+chapitre: Introduction
 order: 1
 ---
 
 # Introduction
-![Introduction](/prototype/Introduction/images/introduction.png)
+![Introduction](/prototype/Introduction/images/introduction.png){:width="500px"}figure: contexte projet
 
 <!-- note -->
 Dans cette partie, nous avons realisé une application de gestion des projects.
