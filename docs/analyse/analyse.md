@@ -9,7 +9,7 @@ order: 6
 <!-- new slide -->
 
 ## Empathie
-
+ 
 ![Empathy](/prototype/analyse/images/empathy.jpg){:width="500px"}
 
 <!-- note -->
