@@ -7,9 +7,6 @@ order: 4
 
 # Prérequis 
 
-
-
-
 Les prérequis comprend les étapes suivantes :
 
 - Planification des tâches à effectuer
