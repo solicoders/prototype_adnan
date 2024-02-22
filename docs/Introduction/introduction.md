@@ -5,7 +5,7 @@ order: 1
 ---
 
 # Introduction
-![Introduction](/prototype/Introduction/images/introduction.png){:width="500px"}*figure: contexte projet*
+![Introduction](./images/introduction.jpg){:width="500px"}*figure: Introduction*
 
 <!-- note -->
 Dans cette partie, nous avons realisé une application de gestion des projects.
