@@ -8,13 +8,9 @@ order: 6
 
 <!-- new slide -->
 
-## Empathy
-
-{% if page.url != "/prototype/" %}
+## Empathie
 
 ![Empathy](/prototype/analyse/images/empathy.jpg){:width="500px"}
-
-{% endif %}
 
 <!-- note -->
 
@@ -79,17 +75,18 @@ _figure: empathy de membre_
 
 ## Définir le problème
 
-![Définir le problem](/prototype/analyse/images/problem.jpg){:width="100%"}
+![Définir le problem](/prototype/analyse/images/problem.jpg){:width="700px"}
+*figure: définir le problème*
 
 <!-- note -->
-
 Perdre énormément de temps à consulter les tâches et à naviguer entre celles-ci dans différents projets en raison de la lenteur du téléchargement des données, en raison d'un volume important de données.
 
 <!-- new slide -->
 
 ## Idéation
 
-![Ideation](/prototype/analyse/images/ideation.jpg){:width="100%"}
+![Ideation](/prototype/analyse/images/ideation.jpg){:width="700px"}
+*figure: ideation*
 
 <!-- note -->
 
@@ -99,6 +96,7 @@ Conception et développement d'une application de gestion de projets, de tâches
 
 ## Diagramme de cas d'utilisation
 
-![Cas d'utilisation](/prototype/analyse/images/casdutilisation.PNG){:width="100%"}
+![Cas d'utilisation](/prototype/analyse/images/casdutilisation.PNG){:width="700px"}
+*figure: cas d'utilisation*
 
 <!-- new slide -->
