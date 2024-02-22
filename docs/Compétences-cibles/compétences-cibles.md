@@ -7,7 +7,7 @@ order: 5
 
 # Compétences cibles
 
-![Compétences](/prototype/Compétences-cibles/images/Compétences-cibles.png)
+![Compétences](/prototype/Compétences-cibles/images/Compétences-cibles.png){:width="100%"}
 *figure: Compétences cibles*
 
 <!-- note -->
