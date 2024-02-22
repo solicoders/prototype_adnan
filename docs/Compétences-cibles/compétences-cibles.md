@@ -1,6 +1,6 @@
 ---
 layout: default
-chapitre: conclusion
+chapitre: Compétences cibles
 order: 5
 
 ---
