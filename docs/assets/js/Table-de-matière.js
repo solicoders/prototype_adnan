@@ -1,6 +1,6 @@
 // Table de matière
-const tableDeMatiere = document.getElementById('table-de-matière'); // Corrected variable name
-const h1AndH2Elements = document.querySelectorAll('h1, h2'); // Select both h1 and h2 elements
+const tableDeMatiere = document.getElementById('table-de-matière');
+const h1AndH2Elements = document.querySelectorAll('h1, h2');
 
 // Create a new unordered list element
 const ul = document.createElement('ul');
