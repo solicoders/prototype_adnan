@@ -5,10 +5,11 @@ order: 1
 ---
 
 # Introduction
-!['introduction'](/prototype/Introduction/images/introduction.png)
+![Introduction](./images/introduction.jpg){:width="500px"}*figure: Introduction*
 
 <!-- note -->
+Dans cette partie, nous avons realisé une application de gestion des projects.
 
-Dans cette partie, nous réalisons le prototype d'un système CRUD qui permet d'ajouter, de modifier et de supprimer des éléments en utilisant un générateur de code et le pattern repository pour la gestion des données. Le pattern repository offre une couche d'abstraction entre l'application et le mécanisme de stockage des données
+Nous avons développé un système CRUD pour les entités Projets et Tâches en utilisant le framework Laravel, avec des fonctionnalités d'autorisation et authentification et multilngue pour l'interface utilisateur afin de faciliter l'apprentissage des compétences nécessaires à la manipulation efficace de ce framework.
 
 <!-- new slide -->
