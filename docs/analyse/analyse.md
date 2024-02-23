@@ -43,7 +43,7 @@ _figure: empathie de chef de projet_
 
 ## membre
 
-Le chef de projet occupe une place essentielle dans le processus de réalisation des projets. Dans cette section, nous explorerons en détail sa méthode de gestion pour mener à bien ces projets.
+Chaque membre dans chaque projet joue un rôle essentiel dans la réalisation du projet en complétant les tâches. Voici un processus pour y parvenir avec la contribution de certains membres.
 
 ### Empathie : membre
 
@@ -96,7 +96,7 @@ Conception et développement d'une application de gestion de projets, de tâches
 
 ## Diagramme de cas d'utilisation
 
-![Cas d'utilisation](/prototype/analyse/images/casdutilisation.PNG){:width="700px"}
+![Cas d'utilisation](/prototype/analyse/images/casdutilisation.PNG){:width="1000px"}
 *figure: cas d'utilisation*
 
 <!-- new slide -->
