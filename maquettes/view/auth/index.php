@@ -2,21 +2,13 @@
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['email'])) {
-        $_SESSION['email'] = $_POST['email'];
-        $_SESSION['name'] = "utilisateur";
-
-        if ($_SESSION['email'] === "admin@solicode.com") {
-            $_SESSION['name'] = "admin";
-            header("Location: ../../droit_d'accés\Autorisations\index.php");
-            exit();
-        } else {
+    
             if ($_SESSION['email'] === "chef-project@solicode.com") {
                 $_SESSION['name'] = "chef de projet";
             }
             header("Location: ../../gestion_des_projet/project/index.php");
             exit();
-        }
-    } else {
+        }else {
         echo "Email or not set.";
     }
 }
@@ -24,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html lang="fr">
 
-<?php include_once "../../layouts/heade.php"; ?>
+<?php include_once "../layouts/heade.php"; ?>
 
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -81,6 +73,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </body>
 
 <!-- get script -->
-<?php include_once "../../layouts/script-link.php"; ?>
+<?php include_once "../layouts/script-link.php"; ?>
 
 </html>
