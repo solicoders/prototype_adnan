@@ -70,7 +70,6 @@ Les étapes de design thinking :
 - Générer un grand nombre d'idées créatives pour aborder le problème identifié. Encourager la pensée divergente, où toutes les idées sont les bienvenues, sans jugement, afin de favoriser l'exploration de différentes solutions possibles.
 
 
-
 ### Prototype 
 
 - Créer des prototypes tangibles ou des représentations visuelles des solutions potentielles. Les prototypes peuvent être simples et rapides à réaliser, mais doivent être suffisamment concrets pour recueillir des retours et les itérer.
@@ -80,9 +79,7 @@ Les étapes de design thinking :
 
 - Tester les prototypes auprès d’utilisateurs réels. Les premières maquettes comportent nécessairement des erreurs, qu’il faut identifier au plus vite et dont il faut ensuite tirer des enseignements.
 
-
 <!-- new slide -->
-
 
 # Branche technique
 
