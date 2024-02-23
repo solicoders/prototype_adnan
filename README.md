@@ -46,13 +46,11 @@ Le backlog est une liste ordonées des tâches
   - Backlog 
 - /docs 
   - Documentation 
-- /rapport 
-  - Rapport de prototype 
-- /présentation 
-  - Présentation de prototype 
 ## Références 
 
  
 
 - [Autoformation](#) 
+- [/rapport](https://labs-web.github.io/prototype/) 
+- [/présentation](https://labs-web.github.io/prototype/presentation.html#/) 
 
