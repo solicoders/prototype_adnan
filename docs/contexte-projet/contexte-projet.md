@@ -48,7 +48,7 @@ Le processus s'articule ensuite autour de 3 phases essentielles :
 ## Design thinking
 
 
-![Méthode 2TUP](/prototype/contexte-projet/images/design-thinking.png){:width="100%"}*figure: Les étapes du Design Thinking*
+![Méthode 2TUP](/prototype/contexte-projet/images/design-thinking.png){:width="900px"}*figure: Les étapes du Design Thinking*
 
 
 <!-- note -->
