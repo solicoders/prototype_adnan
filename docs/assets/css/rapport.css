@@ -115,7 +115,7 @@ img+em {
 	font-style: italic;
 	font-size: 11pt;
 	color: #666;
-	margin-top: 5px;
+	margin: 10px 0;
 }
 
 
@@ -148,21 +148,21 @@ h1 {
 	page-break-before: always;
 	margin-top: 12.0pt;
 	margin-bottom: 1pt;
+	margin: 2rem 0;
 	font-size: 25.0pt;
 	color: #2E74B5;
 }
 
 h2 {
-	/* margin-top:2.0pt; */
-	margin-bottom: 5pt;
 	font-size: 18.0pt;
+	margin: 1rem 0;
 	color: #2E74B5;
 }
 
 h3 {
 	/* margin-top:2.0pt; */
 	font-size: 15.0pt;
-	margin-bottom: 1pt;
+	margin: 0.5rem 0;
 	color: #1F4D78;
 }
 
