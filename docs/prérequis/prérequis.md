@@ -5,14 +5,18 @@ order: 4
 ---
 
 
-# prérequis 
+# Prérequis 
 
-![prérequis](./images/prérequi.png){:width="500px"}*figure: prérequis*
+Les prérequis comprend les étapes suivantes :
 
-<!-- note -->
-
-
-- Le processus de développement implique la planification des tâches, la rédaction du cahier des charges, le maquettage de l'interface, la conception logicielle et de base de données, le codage, la rédaction du rapport et la préparation de la présentation.
+- Planification des tâches à effectuer
+- Rédaction du cahier des charges (problématique, solution proposée, choix des technologies...)
+- Maquettage des différentes pages de l'application
+- Conception logicielle sous forme de diagrammes UML 
+- Conception de la base de données 
+- Codage et réalisation
+- Rédaction du rapport
+- Préparation de la présentation
 
 
 <!-- new slide -->
