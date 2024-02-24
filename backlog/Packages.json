@@ -7,7 +7,8 @@
             "IsValidaionAvecFormateur":false,
             "IsUseUnique":false,
             "Chemins":[
-                "docs/backlog/"
+                "docs/backlog/",
+                "backlog/"
             ]
         },
         {
