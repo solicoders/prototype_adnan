@@ -2,8 +2,19 @@
     "Description":"Liste des packages avec des livrables personnalisés",
     "Packages" : [
         {
+            "Package":"backlog",
+            "Description":"Initialisation de dépôt",
+            "IsValidaionAvecFormateur":true,
+            "IsUseUnique":false,
+            "Chemins":[
+                "docs/backlog/"
+            ]
+        },
+        {
             "Package":"init-lab",
             "Description":"Initialisation de dépôt",
+            "IsUseUnique":false,
+            "IsValidaionAvecFormateur":false,
             "Chemins":[
                 ".github/",
                 ".vscode/",
@@ -24,6 +35,7 @@
         {
             "Package":"init-app",
             "Description":"Initialisation de code, Il est valide si le dossier app n'existe pas",
+            "IsValidaionAvecFormateur":false,
             "IsUseUnique":true,
             "Chemins":[
                 "app/"
