@@ -1,0 +1,33 @@
+{
+    "Description":"Liste des packages avec des livrables personnalisés",
+    "Packages" : [
+        {
+            "Package":"init-lab",
+            "Description":"Initialisation de dépôt",
+            "Chemins":[
+                ".github/",
+                ".vscode/",
+                "docs/layouts/",
+                "docs/assets/",
+                "docs/_config.yml",
+                "docs/.gitignore",
+                "docs/Gemfile",
+                "docs/Gemfile.lock",
+                "docs/images/",
+                "docs/index.md",
+                "docs/presentation.md",
+                "docs/run_jekyll.ps1",
+                "README.json",
+                "README.md"
+            ]
+        },
+        {
+            "Package":"init-app",
+            "Description":"Initialisation de code, Il est valide si le dossier app n'existe pas",
+            "IsUseUnique":true,
+            "Chemins":[
+                "app/"
+            ]
+        }
+    ]
+}
