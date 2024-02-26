@@ -1,66 +1,115 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Initialisation de l'application
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Table des matières
+- [Initialisation de l'application](#initialisation-de-lapplication)
+  - [Table des matières](#table-des-matières)
+    - [Travail à faire](#travail-à-faire)
+    - [Critères de validation](#critères-de-validation)
+    - [Les étapes de l'installation d'AdminLTE](#les-étapes-de-linstallation-dadminlte)
 
-## About Laravel
+### Travail à faire
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+* Création d'un projet Laravel
+* Installation d'AdminLTE
+* Rédaction du fichier README
+* Configuration de Laravel pour utiliser Vite
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Critères de validation
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+* Le projet Laravel est fonctionnel.
+* AdminLTE est correctement installé et configuré.
+* Le fichier README est clair et complet.
+* Les fonctionnalités de base d'AdminLTE sont implémentées.
+* Le design est adapté aux besoins du projet.
 
-## Learning Laravel
+### Les étapes de l'installation d'AdminLTE
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+**1. Installation des prérequis**
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+* Node.js
+* NPM
+* PHP 7.2.5 ou supérieur
+* Un serveur web (Apache, Nginx, etc.)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+**2. Création d'un projet Laravel**
 
-## Laravel Sponsors
+```bash
+composer create-project laravel/laravel mon-projet
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+**3. Installation d'AdminLTE**
 
-### Premium Partners
+```bash
+npm install admin-lte@3.1.0 @fortawesome/fontawesome-free
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+**4. Publication des assets d'AdminLTE**
 
-## Contributing
+```bash
+php artisan vendor:publish --provider="AdminLTE\AdminLTEServiceProvider"
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+**5. Importation des CSS et JavaScript d'AdminLTE**
 
-## Code of Conduct
+Dans `public/css/app.css`, importer les CSS d'AdminLTE et Font Awesome :
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```css
+@import 'admin-lte/plugins/fontawesome-free/css/all.min.css';
+@import 'admin-lte/dist/css/adminlte.min.css';
+```
 
-## Security Vulnerabilities
+Dans `public/js/app.js`, importer le JavaScript d'AdminLTE :
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```javascript
+import 'admin-lte/dist/js/adminlte';
+```
 
-## License
+**6. Installer les dépendances et construire les assets**
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+npm install
+npm run dev
+```
+
+**7. Configuration de Laravel pour utiliser Vite**
+
+Ouvrez votre fichier de mise en page Laravel (par exemple, `resources/views/layouts/app.blade.php`) et incluez les assets Vite :
+
+```html
+@vite(['my-vite-project/src/main.js'])
+```
+
+Assurez-vous d'ajuster le chemin en fonction de la structure de votre projet.
+
+**8. Lancer le serveur de développement Laravel**
+
+Démarrez le serveur de développement Laravel pour prévisualiser votre application.
+
+```bash
+php artisan serve
+```
+
+**9. Configuration de la base de données**
+
+Si nécessaire, configurez la connexion à la base de données dans le fichier `.env`.
+
+**10. Utilisation d'AdminLTE**
+
+Utilisez les templates et les composants d'AdminLTE dans vos vues Blade.
+
+**11. Adaptation du design**
+
+Modifier les variables CSS d'AdminLTE ou créer votre propre thème pour adapter le design aux besoins du projet.
+
+**Présentation**
+* Présentation : [Réalisation-package-starter]( https://docs.google.com/presentation/d/1A3YdTje6L41ELqJpGhJiJ-NSPIiZntfTNhm7ZwhkK0k/edit?usp=sharing)
+
+**Ressources utiles**
+
+* Documentation d'AdminLTE : [https://adminlte.io/docs/3.1/](https://adminlte.io/docs/3.1/)
+* Tutoriels Laravel : [https://laracasts.com/](https://laracasts.com/)
+* Forum de la communauté Laravel : [https://laracasts.com/discuss](https://laracasts.com/discuss)
+
+
+
+
