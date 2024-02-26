@@ -19,7 +19,7 @@
 * Le projet Laravel est fonctionnel.
 * AdminLTE est correctement installé et configuré.
 * Le fichier README est clair et complet.
-* Les fonctionnalités de base d'AdminLTE sont implémentées.
+* Les fonctionnalités de base d AdminLTE sont implémentées.
 * Le design est adapté aux besoins du projet.
 
 ### Les étapes de l'installation d'AdminLTE
