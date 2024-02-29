@@ -9,7 +9,7 @@ order: 3
 
 <!-- note -->
 
-Le projet consiste en le développement d'un système CRUD pour gérer les entités Projets et Tâches avec Laravel, incluant des fonctionnalités d'autorisation. L'objectif principal est de permettre aux développeurs d'acquérir les compétences nécessaires à l'utilisation efficace de ce framework PHP populaire.
+Dans cette partie, nous concevons un prototype en mettant en œuvre le modèle Repository pour la gestion des données. Nous introduisons également le support multilingue pour l'interface utilisateur, renforçons la sécurité grâce à l'authentification, et suivons les meilleures pratiques de déploiement pour garantir une application prête à être utilisée en production.
 
 <!-- new slide -->
 
