@@ -9,7 +9,7 @@ order: 3
 
 <!-- note -->
 
-Dans cette partie, nous concevons un prototype en mettant en œuvre le modèle Repository pour la gestion des données. Nous introduisons également le support multilingue pour l interface utilisateur, renforçons la sécurité grâce à l'authentification, et suivons les meilleures pratiques de déploiement pour garantir une application prête à être utilisée en production.
+Dans cette partie, nous concevons un prototype en mettant en œuvre le modèle Repository pour la gestion des données. Nous introduisons également le support multilingue pour l'interface utilisateur, renforçons la sécurité grâce à l'authentification, et suivons les meilleures pratiques de déploiement pour garantir une application prête à être utilisée en production.
 
 <!-- new slide -->
 
