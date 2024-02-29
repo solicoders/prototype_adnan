@@ -10,7 +10,7 @@ order: 6
 
 ## Empathie
  
-![Empathy](/prototype/analyse/images/empathy.jpg){:width="500px"}
+![Empathy](/prototype/analyse/images/empathy.png){:width="500px"}
 
 <!-- note -->
 
@@ -75,7 +75,7 @@ _figure: empathy de membre_
 
 ## Définir le problème
 
-![Définir le problem](/prototype/analyse/images/problem.jpg){:width="700px"}
+![Définir le problem](/prototype/analyse/images/problem.png){:width="700px"}
 *figure: définir le problème*
 
 <!-- note -->
