@@ -75,7 +75,7 @@ _figure: empathy de membre_
 
 ## Définir le problème
 
-![Définir le problem](/prototype/analyse/images/problem.png){:width="700px"}
+![Définir le problem](/prototype/analyse/images/problem.jpg){:width="700px"}
 *figure: définir le problème*
 
 <!-- note -->
