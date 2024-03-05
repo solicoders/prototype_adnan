@@ -28,20 +28,17 @@ class CompetencesController extends Controller
 
     public function index(Request $request)
     {
-
         $ModuleName = $request->input('query');
         $query = $request->input('query');
 
 
-        // ===================== i used belongsto tasks belong to project to here  =========
         $competences = Competence::with('ModuleRelation')
             ->where(function($queryBuilder) use ($query) {
                 $queryBuilder->where('Title', 'like', '%' . $query . '%')
-                             ->orWhereHas('ModuleRelation', function($projectQuery) use ($query) {
-                                 $projectQuery->where('Name', 'like', '%' . $query . '%');
+                             ->orWhereHas('ModuleRelation', function($moduleQuery) use ($query) {
+                                 $moduleQuery->where('Name', 'like', '%' . $query . '%');
                              });
-            })
-            ->paginate(2); 
+            })->paginate(2); 
         
 
         if ($request->ajax()) {
@@ -50,14 +47,11 @@ class CompetencesController extends Controller
             $modules = Module::all();
             return view('competences.index', compact('competences', 'modules', 'ModuleName'));       
         }
+
     }
     
 
-    // public function index(){
 
-    //     dd('app');
-    //     return view('competences.index');
-    // }
 
   // ======= create =========
   public function create(Request $request)
@@ -70,7 +64,7 @@ class CompetencesController extends Controller
 
   // ======= store =========
 
-  public function store(Request $request)
+  public function store(createCompetencesRequest $request)
   {
       $input = $request->all();
       $this->competenceRepository->create($input);

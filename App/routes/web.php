@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Modules\ModulesController;
 use App\Http\Controllers\Competences\CompetencesController;
 
 /*
@@ -15,11 +16,13 @@ use App\Http\Controllers\Competences\CompetencesController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
+Route::get('/dscsc', function () {
+
+    phpinfo();
 });
 
 
 Route::resource("competences", CompetencesController::class);
+Route::resource("modules", ModulesController::class);
 
 Auth::routes();

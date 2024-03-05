@@ -13,6 +13,9 @@ abstract class BaseRepository {
     }
 
 
+
+
+    
     public function updateImages($id, array $data)
     {
         $images = $this->model->find($id);

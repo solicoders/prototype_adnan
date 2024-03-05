@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Http\Controllers\Competences;
+namespace App\Http\Controllers\Modules;
 
 
 use Illuminate\Http\Request;
@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Repositories\CompetenceRepository\CompetenceRepository;
 
 
-class CompetencesController extends Controller
+class ModulesController extends Controller
 {
     
     protected $competenceRepository;

@@ -55,10 +55,7 @@
                                         @php $selected = ($module->Name == $ModuleName) ? 'selected' : ''; @endphp
                                         <option value="{{ $module->Name }}" {{$selected}}>{{ $module->Name }}</option>
                                     @endforeach
-                                </select>
-
-
-                                
+                                </select>           
                                 
                             </div>
                             
@@ -137,6 +134,7 @@ $(document).ready(function() {
                 query: query,
                 page: page
             },
+            
             success: (data) => updateTable(data)
         });
         history.pushState(null, null, '?query=' + query + '&page=' + page);
