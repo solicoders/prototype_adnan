@@ -48,14 +48,18 @@
 
                             <div style="margin-top:1px;">
                                 <!-- Set width for select element -->
-                                <select id="filter_by_module" class="js-example-basic-single" style="width:250px;" name="module">
+                                <select id="filter_by_module"  style="width:250px;" name="module">
                                     <option value="">{{ __('Pages-text.All Modules') }}</option>
                                     @foreach($modules as $module)
-                                        {{-- Check if the current project is the selected projectID --}}
-                                        @php $selected = ($module->Name == $query) ? 'selected' : ''; @endphp
+                                        {{-- Check if the current module is the selected module --}}
+                                        @php $selected = ($module->Name == $ModuleName) ? 'selected' : ''; @endphp
                                         <option value="{{ $module->Name }}" {{$selected}}>{{ $module->Name }}</option>
                                     @endforeach
                                 </select>
+
+
+                                
+                                
                             </div>
                             
 
@@ -95,16 +99,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
-// In your Javascript (external .js resource or <script> tag)
-    $(document).ready(function() {
-    $('.js-example-basic-single').select2();
-});
 
 
 $(document).ready(function() {
     $(document).on('click', '.delete-competence', function () {
         var competenceId = $(this).data('competence-id');
         var competenceName = $(this).data('competence-title'); // Retrieve competence name
+
         console.log(competenceId);
         console.log(competenceName); // Log the competence name to verify
 
@@ -113,7 +114,7 @@ $(document).ready(function() {
         console.log(deleteUrl);
 
       
-            $('#modal-default .modal-body').html(`
+            $('#modal-default .competences_modal').html(`
             <div>
             {{ __('Pages-text.If you are sure you want to delete this competence') }}
             <strong>"${competenceName}"</strong>
@@ -175,7 +176,7 @@ const updatePaginationLinks = () => {
         $('#searchInput').on('input', function() {
             searchQuery = $('#searchInput').val();
             // searchQuery = $(this).val();
-    console.log(searchQuery)
+            console.log(searchQuery)
 
             search(searchQuery);
         });
@@ -187,10 +188,10 @@ const updatePaginationLinks = () => {
     $(document).ready(() => {
     // console.log('hey')
   
-        $('#filter_by_projects').on('input', function() {
-            searchQuery = $('#filter_by_projects').val();
+        $('#filter_by_module').on('input', function() {
+            searchQuery = $('#filter_by_module').val();
+            console.log(searchQuery);
             // searchQuery = $(this).val();
-           console.log(searchQuery)
 
             search(searchQuery);
         });

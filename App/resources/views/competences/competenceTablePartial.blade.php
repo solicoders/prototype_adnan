@@ -37,7 +37,7 @@
   
   
               
-        <button type="button" class="btn btn-danger delete-task" data-toggle="modal" data-target="#modal-default" data-competence-id="{{ $competence->id }}" data-competence-title="{{ $competence->Title }}" >
+        <button type="button" class="btn btn-danger delete-competence" data-toggle="modal" data-target="#modal-default" data-competence-id="{{ $competence->id }}" data-competence-title="{{ $competence->Title }}" >
             <i class="fa-solid fa-trash-can"></i>
                 </button>
 
@@ -64,7 +64,7 @@
 <div class="modal fade" id="modal-default">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form id="deleteForm" style="display: inline-block;" action="" method="post">
+            <form id="deleteForm" style="display: inline-block;" action="" method="Post">
                 @csrf
                 @method("DELETE")
 
@@ -74,7 +74,7 @@
                         <span aria-hidden="true">&times;</span>
                       </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body competences_modal">
                    
                     
                 </div>

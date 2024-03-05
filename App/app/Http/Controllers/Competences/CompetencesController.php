@@ -24,19 +24,34 @@ class CompetencesController extends Controller
         $this->competenceRepository = $CompetenceRepository;
     }
 
+
+
     public function index(Request $request)
     {
 
+        $ModuleName = $request->input('query');
         $query = $request->input('query');
-        $competences = $this->competenceRepository->searchCompetences($query);
+
+
+        // ===================== i used belongsto tasks belong to project to here  =========
+        $competences = Competence::with('ModuleRelation')
+            ->where(function($queryBuilder) use ($query) {
+                $queryBuilder->where('Title', 'like', '%' . $query . '%')
+                             ->orWhereHas('ModuleRelation', function($projectQuery) use ($query) {
+                                 $projectQuery->where('Name', 'like', '%' . $query . '%');
+                             });
+            })
+            ->paginate(2); 
+        
 
         if ($request->ajax()) {
             return view('competences.competencesTablePartial', compact('competences'));
         } else {
             $modules = Module::all();
-            return view('competences.index', compact('competences', 'modules', 'query'));
+            return view('competences.index', compact('competences', 'modules', 'ModuleName'));       
         }
     }
+    
 
     // public function index(){
 
@@ -68,11 +83,11 @@ class CompetencesController extends Controller
   // ======= edit =========
 
   public function edit($id){
-      $Modules = Module::all();
-      $Competence = Competence::find($id);
+      $modules = Module::all();
+      $competence = Competence::find($id);
       // ===================== i used belongsto Competences belong to Module to here  =========
-      $selectedModule = $Competence->Module;
-      return view('Competences.update', compact('Competence', 'selectedModule', 'Modules'));
+      $selectedModule = $competence->ModuleRelation;
+      return view('Competences.update', compact('competence', 'selectedModule', 'modules'));
    }
 
   // ======= update =========
@@ -84,10 +99,9 @@ class CompetencesController extends Controller
       if (!$task) {
           return redirect()->route('Competences.index')->with('error', 'tâche introuvable');
       }
-      // dd($request);
 
       $request->validate([
-          'title' => 'required|unique:tasks,title,' . $id,
+          'title' => 'required|unique:competences,title,' . $id,
           'description' => 'nullable|string|max:1000',
           'module_id' => 'required|integer',
          
@@ -95,7 +109,7 @@ class CompetencesController extends Controller
 
       $input = $request->all();
       $task->update($input);
-      return redirect()->route('tasks.index')->with('success', 'tâche mise à jour avec succès');
+      return redirect()->route('competences.index')->with('success', 'tâche mise à jour avec succès');
   }
 
 
@@ -104,7 +118,7 @@ class CompetencesController extends Controller
       $Competence = Competence::find($id);
       if($Competence){
           // ============== relation belongsto ===============
-          $moduleName = $Competence->module->Name;
+          $moduleName = $Competence->ModuleRelation->Name;
           return view('Competences.view', compact('moduleName', 'Competence'));
       }else {
           return abort(404);

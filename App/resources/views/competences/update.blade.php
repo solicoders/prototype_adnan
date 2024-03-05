@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>{{ __('Pages-text.Modify Task') }}</h1>
+            <h1>{{ __('Pages-text.Modify Competence') }}</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -20,33 +20,33 @@
             <!-- general form elements -->
             <div class="card card-info">
               <div class="card-header">
-              <h3 class="card-title">{{ __('Pages-text.Edit Task') }}</h3>
+              <h3 class="card-title">{{ __('Pages-text.Edit Competence') }}</h3>
               </div>
               <!-- .card-header -->
               <!-- form start -->
-              <form method="Post" action="{{route('tasks.update', $task->id)}}">
+              <form method="Post" action="{{route('competences.update', $competence->id)}}">
                 @csrf 
                 @method('put')
                 <div class="card-body">
                     <div class="form-group">
                         <label for="">title</label>
                         <input name="title" type="text" class="form-control"
-                            id="" placeholder="Enter Name" value="{{$task->Title}}">
+                            id="" placeholder="Enter Name" value="{{$competence->Title}}">
                     </div>
 
                     <div class="form-group">
                         <label for="">Description</label>
                         <input name="description" type="text" class="form-control"
-                            id="" placeholder="Description" value="{{$task->Description}}">
+                            id="" placeholder="Description" value="{{$competence->Description}}">
                     </div>
 
-                    <label for="">Project</label>
-                    <select name="project_id" class="form-control">
-                        <option>-- Select Project --</option>
-                        <option selected value="{{ $selectedproject->id }}">{{$selectedproject->Name}}</option>
-                        @foreach ($projects as $project)
-                        @if ($project->id !== $selectedproject->id) 
-                            <option value="{{ $project->id }}">{{ $project->Name }}</option>
+                    <label for="">Module</label>
+                    <select name="module_id" class="form-control">
+                        <option>-- Select module --</option>
+                        <option selected value="{{ $selectedModule->id }}">{{$selectedModule->Name}}</option>
+                        @foreach ($modules as $module)
+                        @if ($module->id !== $selectedModule->id) 
+                            <option value="{{ $module->id }}">{{ $module->Name }}</option>
                             @endif
                         @endforeach
                     </select>
@@ -54,8 +54,8 @@
                 </div>
 
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-info">edit project</button>
-                    <a href="{{route('tasks.index')}}" class="btn btn-default">Cancel</a>
+                    <button type="submit" class="btn btn-info">edit module</button>
+                    <a href="{{route('competences.index')}}" class="btn btn-default">Cancel</a>
                 </div>
             </form>
             </div>

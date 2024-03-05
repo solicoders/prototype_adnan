@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">{{ __('Pages-text.Task Details') }}</h1>
+                    <h1 class="m-0">{{ __('Pages-text.Competence Details') }}</h1>
                 </div><!-- /.col -->
 
             </div><!-- /.row -->
@@ -26,7 +26,7 @@
             <!-- general form elements -->
             <div class="col-md-12 card card-secondary card-create">
               <div class="card-header">
-                <h3 class="card-title">{{ __('Pages-text.Show Task') }}</h3>
+                <h3 class="card-title">{{ __('Pages-text.Show Competence') }}</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -35,34 +35,34 @@
 
                   <div class="card card-secondary card-outline">
                     <div class="card-header">
-                      <h5 class="card-title m-0">{{ __('Pages-text.Task Title') }}</h5>
+                      <h5 class="card-title m-0">{{ __('Pages-text.Competence Title') }}</h5>
                     </div>
                     <div class="card-body">
 
 
-                      <p class="card-text">{{$task->Title}}</p>
+                      <p class="card-text">{{$Competence->Title}}</p>
 
                     </div>
                   </div>
                   <div class="card card-secondary card-outline">
                     <div class="card-header">
-                      <h5 class="card-title m-0">{{ __('Pages-text.Task Description') }}</h5>
+                      <h5 class="card-title m-0">{{ __('Pages-text.Competence Description') }}</h5>
                     </div>
                     <div class="card-body">
 
 
-                      <p class="card-text">{{$task->Description}}</p>
+                      <p class="card-text">{{$Competence->Description}}</p>
 
                     </div>
                   </div>
                   <div class="card card-secondary card-outline">
                     <div class="card-header">
-                      <h5 class="card-title m-0">{{ __('Pages-text.Project Name') }}</h5>
+                      <h5 class="card-title m-0">{{ __('Pages-text.Competence Name') }}</h5>
                     </div>
                     <div class="card-body">
 
 
-                      <p class="card-text">{{$projectName}}</p>
+                      <p class="card-text">{{$moduleName}}</p>
 
                     </div>
                   </div>    
@@ -73,12 +73,12 @@
                     <div class="d-flex">
                          @can('edit-TasksController')
                         <div class="p-2">
-                            <a href="{{route('tasks.edit', $task->id)}}" class="btn btn-warning">{{ __('Pages-text.Modify') }}</a>
+                            <a href="{{route('competences.edit', $competences->id)}}" class="btn btn-warning">{{ __('Pages-text.Modify') }}</a>
                         </div>
                         @endcan
 
                         <div class="ml-auto p-2">
-                            <a href="{{route('tasks.index')}}" class="btn btn-secondary">{{ __('Pages-text.Cancel') }}</a>
+                            <a href="{{route('competences.index')}}" class="btn btn-secondary">{{ __('Pages-text.Cancel') }}</a>
                         </div>
                       </div>
 
