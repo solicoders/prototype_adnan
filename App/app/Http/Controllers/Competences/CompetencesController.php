@@ -26,6 +26,7 @@ class CompetencesController extends Controller
 
     public function index(Request $request)
     {
+
         $query = $request->input('query');
         $competences = $this->competenceRepository->searchCompetences($query);
 
@@ -47,14 +48,14 @@ class CompetencesController extends Controller
   public function create(Request $request)
   {
 
-          $competences = Module::all();
-          return view('competences.create', ['competences' => $competences]);
+          $modules = Module::all();
+          return view('competences.create', ['modules' => $modules]);
 
   }
 
   // ======= store =========
 
-  public function store(createCompetencesRequest $request)
+  public function store(Request $request)
   {
       $input = $request->all();
       $this->competenceRepository->create($input);

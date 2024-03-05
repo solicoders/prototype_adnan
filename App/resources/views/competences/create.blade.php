@@ -18,13 +18,13 @@
       <div class="container-fluid">
     
             <!-- general form elements -->
-            <div class="card card-success">
+            <div class="card card-info">
               <div class="card-header">
               <h3 class="card-title">{{ __('Pages-text.Create a task for Project') }} </h3>
               </div>
               <!-- .card-header -->
               <!-- form start -->
-              <form method="post" action="{{route('tasks.store')}}">
+              <form method="post" action="{{route('competences.store')}}">
                 @csrf
                 <div class="card-body">
                     {{-- <input type="hidden" value="{{$projectId}}" name="project_id"> --}}
@@ -49,10 +49,10 @@
                   </div>
 
                   <label for="">Project</label>
-                  <select name="project_id" class="form-control">
+                  <select name="module_id" class="form-control">
                       <option selected>-- Select Project --</option>
-                      @foreach ($projects as $project)
-                          <option value="{{ $project->id }}">{{ $project->Name }}</option>
+                      @foreach ($modules as $module)
+                          <option value="{{ $module->id }}">{{ $module->Name }}</option>
                       @endforeach
                   </select>
                
@@ -62,9 +62,9 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-success">{{ __('Pages-text.Create task') }}</button>
+                  <button type="submit" class="btn btn-info">{{ __('Pages-text.Create task') }}</button>
            
-                    <a href="{{route('projects.index')}}" type="submit" class="btn btn-secondary">{{ __('Pages-text.Cancel') }}</a>
+                    <a href="{{route('competences.index')}}" type="submit" class="btn btn-secondary">{{ __('Pages-text.Cancel') }}</a>
   
                 </div>
               </form>

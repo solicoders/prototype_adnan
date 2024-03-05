@@ -15,16 +15,16 @@ class Competence extends Model
         'title', 
         'description',  
         'module_id'
-      
     ];
 
+
     public static $rules = [
-        'title' => 'required|unique:tasks,title',
+        'title' => 'required|unique:competences,title',
         'description' => 'nullable|string|max:1000',
         'module_id' => 'required|integer',
     ];
     
-    public function Module()
+    public function ModuleRelation()
     {
         return $this->belongsTo(Module::class, 'module_id');
     }

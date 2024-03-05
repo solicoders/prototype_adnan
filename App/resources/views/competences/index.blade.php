@@ -11,9 +11,9 @@
             </div>
             <div class="col-sm-6">
                 <div class="float-sm-right">
-                    @can('create-CompetencesController')
-                    <a href="{{route('competences.create')}}" class="btn btnAdd">{{ __('Pages-text.Create a Competences') }}</a>
-                    @endcan
+                    {{-- @can('create-CompetencesController') --}}
+                    <a href="{{route('competences.create')}}" class="btn btn-primary btnAdd">{{ __('Pages-text.Create a Competences') }}</a>
+                    {{-- @endcan --}}
                 </div>
             </div>
         </div>
@@ -52,7 +52,7 @@
                                     <option value="">{{ __('Pages-text.All Modules') }}</option>
                                     @foreach($modules as $module)
                                         {{-- Check if the current project is the selected projectID --}}
-                                        @php $selected = ($module->Name == $ModuleName) ? 'selected' : ''; @endphp
+                                        @php $selected = ($module->Name == $query) ? 'selected' : ''; @endphp
                                         <option value="{{ $module->Name }}" {{$selected}}>{{ $module->Name }}</option>
                                     @endforeach
                                 </select>

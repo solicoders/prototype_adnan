@@ -12,10 +12,10 @@
             <tbody id="tbodyresults">
                 @forelse($competences as $competence)
 <tr>
-    <td>{{ $task->Title }}</td>
+    <td>{{ $competence->Title }}</td>
     <td>
         @php
-            $words = explode(' ', $task->Description);
+            $words = explode(' ', $competence->Description);
             $shortenedDescription = implode(' ', array_slice($words, 0, 4));
             $remainingWords = count($words) - 4;
         @endphp
@@ -23,27 +23,23 @@
         {{ $shortenedDescription }} @if ($remainingWords > 0) ... @endif
     </td>
     {{-- relation --}}
-    <td>{{ $task->project->Name }}</td>   
+    <td>{{ $competence->ModuleRelation->Name }}</td>   
     <td class="project-actions text-center">
 
         <a class="btn btn-primary btn-sm" href="{{route('competences.show', $competence->id)}}">
             <i class="fas fa-folder"></i>
         </a>
 
-        @can('edit-CompetencesController')
         {{-- edit --}}
         <a class="btn btn-info btn-sm" href="{{route('competences.edit', $competence->id)}}">
             <i class="fas fa-pencil-alt"></i>    
         </a>
-        @endcan
   
   
-        @can('destroy-CompetencesController')
               
         <button type="button" class="btn btn-danger delete-task" data-toggle="modal" data-target="#modal-default" data-competence-id="{{ $competence->id }}" data-competence-title="{{ $competence->Title }}" >
             <i class="fa-solid fa-trash-can"></i>
                 </button>
-        @endcan
 
     </td>
 </tr>

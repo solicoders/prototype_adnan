@@ -19,10 +19,13 @@ use App\Models\Competence\Competence;
 
     public function searchCompetences($query, $perPage = 2)
     {
-        return Competence::with('Modules')
+
+
+
+        return Competence::with('ModuleRelation')
             ->where(function($queryBuilder) use ($query) {
-                $queryBuilder->where('title', 'like', '%' . $query . '%')
-                             ->orWhereHas('module', function($projectQuery) use ($query) {
+                $queryBuilder->where('Title', 'like', '%' . $query . '%')
+                             ->orWhereHas('ModuleRelation', function($projectQuery) use ($query) {
                                  $projectQuery->where('Name', 'like', '%' . $query . '%');
                              });
             })
@@ -31,12 +34,6 @@ use App\Models\Competence\Competence;
 
 
 
-
-
-
-
-
-    
     
 
 }
