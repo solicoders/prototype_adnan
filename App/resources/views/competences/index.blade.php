@@ -155,7 +155,6 @@ const updateTable = (html) => {
 
 const updatePaginationLinks = () => {
     // console.log('updatePaginationLinks');
-
             $('button[page-number]').each(function() {
                 $(this).on('click', function() {
                 // console.log('click');
@@ -166,11 +165,8 @@ const updatePaginationLinks = () => {
             })
         }
      
-
         
     $(document).ready(() => {
-    // console.log('hey')
-  
         $('#searchInput').on('input', function() {
             searchQuery = $('#searchInput').val();
             // searchQuery = $(this).val();
@@ -178,25 +174,18 @@ const updatePaginationLinks = () => {
 
             search(searchQuery);
         });
-
         updatePaginationLinks();
-        
     });
 
     $(document).ready(() => {
-    // console.log('hey')
-  
         $('#filter_by_module').on('input', function() {
             searchQuery = $('#filter_by_module').val();
-            console.log(searchQuery);
-            // searchQuery = $(this).val();
-
             search(searchQuery);
         });
-
-        updatePaginationLinks();
-        
+        updatePaginationLinks();     
     });
+
+   
   
 </script>
 

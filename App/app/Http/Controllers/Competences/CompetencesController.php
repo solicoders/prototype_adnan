@@ -30,24 +30,15 @@ class CompetencesController extends Controller
     {
         $ModuleName = $request->input('query');
         $query = $request->input('query');
-
-
-        $competences = Competence::with('ModuleRelation')
-            ->where(function($queryBuilder) use ($query) {
-                $queryBuilder->where('Title', 'like', '%' . $query . '%')
-                             ->orWhereHas('ModuleRelation', function($moduleQuery) use ($query) {
-                                 $moduleQuery->where('Name', 'like', '%' . $query . '%');
-                             });
-            })->paginate(2); 
-        
-
+    
+        $competences = $this->competenceRepository->getCompetences($query);
+    
         if ($request->ajax()) {
             return view('competences.competencesTablePartial', compact('competences'));
         } else {
             $modules = Module::all();
             return view('competences.index', compact('competences', 'modules', 'ModuleName'));       
         }
-
     }
     
 
@@ -64,12 +55,12 @@ class CompetencesController extends Controller
 
   // ======= store =========
 
-  public function store(createCompetencesRequest $request)
-  {
-      $input = $request->all();
-      $this->competenceRepository->create($input);
-      return redirect()->route('competences.index')->with('success', 'produit ajouté avec succès');
-  }
+//   public function store(createCompetencesRequest $request)
+//   {
+//       $input = $request->all();
+//       $this->competenceRepository->create($input);
+//       return redirect()->route('competences.index')->with('success', 'produit ajouté avec succès');
+//   }
 
 
 

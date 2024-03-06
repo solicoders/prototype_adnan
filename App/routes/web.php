@@ -16,10 +16,12 @@ use App\Http\Controllers\Competences\CompetencesController;
 |
 */
 
-Route::get('/dscsc', function () {
+Route::get('/phpinfo', function () {
 
     phpinfo();
 });
+
+Route::redirect('/', '/competences');
 
 
 Route::resource("competences", CompetencesController::class);

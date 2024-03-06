@@ -17,26 +17,37 @@ use App\Models\Competence\Competence;
     }
 
 
-    public function searchCompetences($query, $perPage = 2)
-    {
 
-
-
-        return Competence::with('ModuleRelation')
+    public function getCompetences($query){
+       return $competences = Competence::with('ModuleRelation')
             ->where(function($queryBuilder) use ($query) {
-                $queryBuilder->where('Title', 'like', '%' . $query . '%')
-                             ->orWhereHas('ModuleRelation', function($projectQuery) use ($query) {
-                                 $projectQuery->where('Name', 'like', '%' . $query . '%');
+                $queryBuilder->where('title', 'like', '%' . $query . '%')
+                             ->orWhereHas('ModuleRelation', function($moduleQuery) use ($query) {
+                                 $moduleQuery->where('Name', 'like', '%' . $query . '%');
                              });
-            })
-            ->paginate($perPage);
+            })->paginate(1); 
+
     }
 
 
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
+
 
 
 
