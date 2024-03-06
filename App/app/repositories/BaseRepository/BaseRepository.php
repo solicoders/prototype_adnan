@@ -13,50 +13,26 @@ abstract class BaseRepository {
     }
 
 
-
-
+    public function store(array $validatedata){
+        return $this->model->create($validatedata);
+      }
     
-    public function updateImages($id, array $data)
-    {
-        $images = $this->model->find($id);
-   
-        if (!$images) {
-            return false; 
-        }
-   
-        $images->update($data);
-   
-        return $images;
+      public function update($validatedata, $id){
+        $findItem = $this->model->find($id);
+        return $findItem->update($validatedata);
+      }
+    
+      public function paginatedData($perpage){
+         return $this->model->paginate($perpage);
+      }
+       
+      public function destroy($id){
+        $toDelete = $this->model->find($id);
+        return $toDelete->delete();
     }
 
-    
-    public function editImages($id)
-{
-    $images = $this->model->findOrFail($id);
-    return $images; // Adjust this line based on what you want to do with the retrieved images
+
 }
-
-
-
-public function create(array $input): Model
-{  
-    $model = $this->model->newInstance($input);
-    $model->save();
-    return $model;
-}
-
-
-
-
-
-public function delete_images($id){
-
-    $this->model->find($id)->delete();
-   
-}
-
-
-    }
 
   
 

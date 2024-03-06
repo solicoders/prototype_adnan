@@ -22,7 +22,8 @@ class createCompetencesRequest extends FormRequest
      */
     public function rules(): array
     {
-            return Competence::$rules;
+        return Competence::$rules;
+
             
     }
 }

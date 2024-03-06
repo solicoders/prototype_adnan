@@ -10,9 +10,7 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="float-sm-right">
-                        @can('create-ProjectController')
-                        <a href="{{route('modules.create')}}" class="btn btnAdd">{{ __('Pages-text.Create a Module') }}</a>
-                        @endcan
+                        <a href="{{route('modules.create')}}" class="btn btn-primary btnAdd">{{ __('Pages-text.Create a Module') }}</a>
                     </div>
                 </div>
             </div>
@@ -97,7 +95,7 @@ $(document).ready(function() {
     // const tableContainer = $('#table-container');
     var searchQuery = '';
     const search = (query = '', page = 1) => {
-        $.ajax('{{ route('projects.index') }}', {
+        $.ajax('{{ route('modules.index') }}', {
             data: {
                 query: query,
                 page: page

@@ -16,13 +16,13 @@ use App\Http\Controllers\Competences\CompetencesController;
 |
 */
 
-Route::get('/dscsc', function () {
+Route::get('/phpinfo', function () {
 
     phpinfo();
 });
 
 
-Route::resource("competences", CompetencesController::class);
-Route::resource("modules", ModulesController::class);
+Route::redirect('/', '/competences');
+
 
 Auth::routes();

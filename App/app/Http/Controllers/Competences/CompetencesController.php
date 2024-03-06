@@ -6,7 +6,10 @@ namespace App\Http\Controllers\Competences;
 
 use Illuminate\Http\Request;
 use App\Models\Module\Module;
+use App\Exports\CompetenceExport;
+use App\Imports\CompetenceImport;
 use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Competence\Competence;
 use App\Http\Requests\createCompetencesRequest;
 use App\Repositories\CompetenceRepository\CompetenceRepository;
@@ -30,44 +33,34 @@ class CompetencesController extends Controller
     {
         $ModuleName = $request->input('query');
         $query = $request->input('query');
-
-
-        $competences = Competence::with('ModuleRelation')
-            ->where(function($queryBuilder) use ($query) {
-                $queryBuilder->where('Title', 'like', '%' . $query . '%')
-                             ->orWhereHas('ModuleRelation', function($moduleQuery) use ($query) {
-                                 $moduleQuery->where('Name', 'like', '%' . $query . '%');
-                             });
-            })->paginate(2); 
-        
-
+    
+        $competences = $this->competenceRepository->getCompetences($query);
+    
         if ($request->ajax()) {
             return view('competences.competencesTablePartial', compact('competences'));
         } else {
             $modules = Module::all();
             return view('competences.index', compact('competences', 'modules', 'ModuleName'));       
         }
-
     }
     
-
+    
 
 
   // ======= create =========
   public function create(Request $request)
   {
-
-          $modules = Module::all();
+       $modules = $this->competenceRepository->getAllCompetences();
           return view('competences.create', ['modules' => $modules]);
 
   }
 
-  // ======= store =========
+
 
   public function store(createCompetencesRequest $request)
   {
       $input = $request->all();
-      $this->competenceRepository->create($input);
+      $this->competenceRepository->store($input);
       return redirect()->route('competences.index')->with('success', 'produit ajouté avec succès');
   }
 
@@ -77,46 +70,48 @@ class CompetencesController extends Controller
   // ======= edit =========
 
   public function edit($id){
-      $modules = Module::all();
-      $competence = Competence::find($id);
+
+
+      $modules = $this->competenceRepository->getAllCompetences();
+      $competence = $this->competenceRepository->find($id);
+     
+
       // ===================== i used belongsto Competences belong to Module to here  =========
       $selectedModule = $competence->ModuleRelation;
       return view('Competences.update', compact('competence', 'selectedModule', 'modules'));
+
    }
 
   // ======= update =========
 
   public function update(Request $request, $id)
   {
-  
-      $task = Competence::find($id);
-      if (!$task) {
-          return redirect()->route('Competences.index')->with('error', 'tâche introuvable');
-      }
+      $competence = $this->competenceRepository->find($id);
 
+
+      if (!$competence) {
+          return redirect()->route('Competences.index')->with('error', 'Tâche introuvable');
+      }
+  
       $request->validate([
           'title' => 'required|unique:competences,title,' . $id,
           'description' => 'nullable|string|max:1000',
           'module_id' => 'required|integer',
-         
       ]);
-
-      $input = $request->all();
-      $task->update($input);
-      return redirect()->route('competences.index')->with('success', 'tâche mise à jour avec succès');
+  
+      $validatedData = $request->all();
+      $this->competenceRepository->update($validatedData, $id);
+      
+      return redirect()->route('competences.index')->with('success', 'Tâche mise à jour avec succès');
   }
+  
 
 
   // ======= show =========
   public function show($id){
-      $Competence = Competence::find($id);
-      if($Competence){
-          // ============== relation belongsto ===============
-          $moduleName = $Competence->ModuleRelation->Name;
-          return view('Competences.view', compact('moduleName', 'Competence'));
-      }else {
-          return abort(404);
-      }
+      $competence = $this->competenceRepository->find($id);
+      $moduleName = $competence->ModuleRelation->Name;
+      return view('Competences.view', compact('moduleName', 'Competence'));
   }
   
 
@@ -125,7 +120,8 @@ class CompetencesController extends Controller
 
   public function destroy($id)
 {
-  Competence::find($id)->delete();
+
+  $this->competenceRepository->find($id)->destroy($id);
   return redirect()->route('competences.index')->with('success', 'tâche supprimée avec succès');
 
 }
@@ -133,6 +129,36 @@ class CompetencesController extends Controller
 
 
 
+public function exportCompetences(){
+    return Excel::download(new CompetenceExport, 'competences.xlsx');
+}
+
+
+
+
+public function importCompetences(Request $request)
+{
+    $request->validate([
+        'competences' => 'required|mimes:xlsx,xls',
+    ]);
+
+    $import = new CompetenceImport;
+
+    try {
+        $importedRows = Excel::import($import, $request->file('competences'));
+    
+        if($importedRows) {
+            $successMessage = 'Fichier importé avec succès.';
+        } else {
+            $successMessage = 'Pas de nouvelles données à importer.';
+        }
+
+        return redirect('/competences')->with('success', $successMessage);
+    } catch (\Exception $e) {
+        // Handle the exception, e.g., log the error or display an error message.
+        return redirect('/competences')->with('error', 'une erreur a été acourd vérifier la syntaxe');
+    }
+}
 
 
 }
