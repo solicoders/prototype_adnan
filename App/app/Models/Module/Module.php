@@ -12,7 +12,7 @@ class Module extends Model
     protected $fillable = ['name', 'description', 'start_date', 'end_date'];
     public static $rules = [
 
-        'name' => 'required|unique:projects,name',
+        'name' => 'required|unique:modules,name',
         'description' => 'nullable|string|max:1000',
         'start_date' => 'required|date',
         'end_date' => 'required|date|after:start_date',
