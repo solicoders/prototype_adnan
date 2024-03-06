@@ -14,7 +14,7 @@ abstract class BaseRepository {
 
 
     public function store(array $validatedata){
-        return $this ->model->create($validatedata);
+        return $this->model->create($validatedata);
       }
     
       public function update($validatedata, $id){
@@ -23,7 +23,7 @@ abstract class BaseRepository {
       }
     
       public function paginatedData($perpage){
-         return $this ->model->paginate($perpage);
+         return $this->model->paginate($perpage);
       }
        
       public function destroy($id){

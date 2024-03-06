@@ -21,10 +21,8 @@ Route::get('/phpinfo', function () {
     phpinfo();
 });
 
+
 Route::redirect('/', '/competences');
 
-
-Route::resource("competences", CompetencesController::class);
-Route::resource("modules", ModulesController::class);
 
 Auth::routes();

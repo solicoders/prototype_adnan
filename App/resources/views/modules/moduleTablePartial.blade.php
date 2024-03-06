@@ -12,44 +12,35 @@
                 </tr>
             </thead>
             <tbody id="tbodyresults">
-                @forelse($projects->items() as $project)
+                @forelse($modules->items() as $module)
 <tr>
-    <td>{{ $project->Name }}</td>
+    <td>{{ $module->Name }}</td>
     <td>
         @php
-            $words = explode(' ', $project->Description);
+            $words = explode(' ', $module->Description);
             $shortenedDescription = implode(' ', array_slice($words, 0, 4));
             $remainingWords = count($words) - 4;
         @endphp
     
         {{ $shortenedDescription }} @if ($remainingWords > 0) ... @endif
     </td>
-    <td>{{ $project->Start_Date }}</td>
-    <td>{{ $project->End_Date }}</td>
+    <td>{{ $module->Start_Date }}</td>
+    <td>{{ $module->End_Date }}</td>
 
         <td class="text-center">
-            @can('edit-ProjectController')
-            <a href="{{route('projects.edit', $project->id)}}" class="btn btn-sm btn-default"><i
+            <a href="{{route('modules.edit', $module->id)}}" class="btn btn-sm btn-default"><i
                     class="fa-solid fa-pen-to-square"></i></a>
-            @endif
 
 
-            <a href="{{route('tasks.index', ['query' => $project->Name])}}"
+            <a href="{{route('competences.index', ['query' => $module->Name])}}"
                 class="btn btn-sm btn-default mx-2">{{ __('Pages-text.See Tasks')}}</a>
           
-
-                
-
-
-
                  
-                @can('destroy-ProjectController')
-                    <button type="button" class="btn btn-danger delete-project" data-toggle="modal" data-target="#modal-default" data-project-id="{{ $project->id }}" data-project-name="{{ $project->Name }}" >
+                    <button type="button" class="btn btn-danger delete-module" data-toggle="modal" data-target="#modal-default" data-module-id="{{ $module->id }}" data-module-name="{{ $module->Name }}" >
                 <i class="fa-solid fa-trash-can"></i>
                     </button>
-                @endif
 
-                <a class="btn btn-primary btn-sm" href="{{route('projects.show', $project->id)}}">
+                <a class="btn btn-primary btn-sm" href="{{route('modules.show', $module->id)}}">
                     <i class="fas fa-folder"></i>          
                 </a> 
 
@@ -109,30 +100,30 @@
     <div class="card-footer clearfix">
             <div class="float-right">
             <div id="paginationContainer">                 
-                @if ($projects->count() > 0)
+                @if ($modules->count() > 0)
                 <ul class="pagination m-0">
-                    @if ($projects->onFirstPage())
+                    @if ($modules->onFirstPage())
                         <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
                             <span class="page-link" aria-hidden="true">«</span>
                         </li>
                     @else
                         <li class="page-item">
-                            <button class="page-link" page-number="{{ $projects->currentPage() - 1 }}" rel="prev"
+                            <button class="page-link" page-number="{{ $modules->currentPage() - 1 }}" rel="prev"
                                 aria-label="@lang('pagination.previous')">«</button>
                         </li>
                     @endif
         
-                    @for ($i = 1; $i <= $projects->lastPage(); $i++)
-                        @if ($i == $projects->currentPage())
+                    @for ($i = 1; $i <= $modules->lastPage(); $i++)
+                        @if ($i == $modules->currentPage())
                             <li class="page-item active" aria-current="page"><span class="page-link">{{ $i }}</span></li>
                         @else
                             <li class="page-item"><button class="page-link" page-number="{{ $i }}">{{ $i }}</button></li>
                         @endif
                     @endfor
         
-                    @if ($projects->hasMorePages())
+                    @if ($modules->hasMorePages())
                         <li class="page-item">
-                            <button class="page-link" page-number="{{ $projects->currentPage() + 1 }}" rel="next"
+                            <button class="page-link" page-number="{{ $modules->currentPage() + 1 }}" rel="next"
                                 aria-label="@lang('pagination.next')">»</button>
                         </li>
                     @else
@@ -144,23 +135,18 @@
             @endif              
             </div>
         </div>
-        @can('export-ProjectController')
         
         <div class="float-left d-flex">
-            <a href="{{route('export.project')}}" style="height: 38px;" class="btn text-black border border-dark">
+            <a href="{{route('export.modules')}}" style="height: 38px;" class="btn text-black border border-dark">
                 {{ __('Pages-text.Export') }} <i class="fa-solid fa-upload pl-2"></i>
             </a>
-@endcan
+          
             
-  
-        @can('import-ProjectController')
-            
-            <form action="{{ route('import.project') }}" class="pl-1" method="post" enctype="multipart/form-data" id="importForm">
+            <form action="{{route('import.modules')}}" class="pl-1" method="post" enctype="multipart/form-data" id="importForm">
                 @csrf 
-                <input type="file" name="projects" id="formFileInput" style="position: absolute; left: -9999px;">
+                <input type="file" name="modules" id="formFileInput" style="position: absolute; left: -9999px;">
                 <button type="button" id="fileButton" class="btn text-black border border-dark">{{ __('Pages-text.Import') }} <i class="fa-solid fa-download pl-2"></i></button>
             </form>
-@endcan
             
         </div>
 

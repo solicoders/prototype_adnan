@@ -133,21 +133,17 @@
         </div>                                          
        
         <div class="float-left d-flex">
-        @can('export-CompetencesController')
 
-            <a href=""  style="height: 38px;" class="btn text-black border border-dark">
+            <a href="{{route('competence.export')}}"  style="height: 38px;" class="btn text-black border border-dark">
                 {{ __('Pages-text.Export') }} <i class="fa-solid fa-upload pl-2"></i>
             </a>
-            @endcan
-            @can('import-CompetencesController')
   
             
-            <form action="" class="pl-1" method="post" enctype="multipart/form-data" id="importForm">
+            <form action="{{route('competence.import')}}" class="pl-1" method="post" enctype="multipart/form-data" id="importForm">
                 @csrf 
-                <input type="file" name="tasks" id="formFileInputtasks" style="position: absolute; left: -9999px;">
+                <input type="file" name="competences" id="formFileInputtasks" style="position: absolute; left: -9999px;">
                 <button type="button" id="importbutton" class="btn text-black border border-dark">{{ __('Pages-text.Import') }} <i class="fa-solid fa-download pl-2"></i></button>
             </form>
-            @endcan
 
             
         </div>  

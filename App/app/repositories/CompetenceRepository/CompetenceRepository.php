@@ -3,8 +3,9 @@
 
 
 namespace App\repositories\CompetenceRepository;
-use App\repositories\BaseRepository\BaseRepository;
+use App\Models\Module\Module;
 use App\Models\Competence\Competence;
+use App\repositories\BaseRepository\BaseRepository;
 
 
 
@@ -30,6 +31,18 @@ use App\Models\Competence\Competence;
     }
 
 
+public function getAllCompetences(){
+   return Module::all();
+
+}
+
+
+
+public function find($id){
+
+     $competence = Competence::findOrFail($id);
+     return $competence;
+}
 
 
 

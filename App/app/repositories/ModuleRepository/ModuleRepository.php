@@ -3,8 +3,10 @@
 
 
 namespace App\repositories\ModuleRepository;
-use App\repositories\BaseRepository\BaseRepository;
+use App\Exports\ModuleExport;
 use App\Models\Module\Module;
+use Maatwebsite\Excel\Facades\Excel;
+use App\repositories\BaseRepository\BaseRepository;
 
 
 
@@ -18,16 +20,34 @@ use App\Models\Module\Module;
 
 
 
+
+    public function paginatedData($perpage, $query = null){
+        if ($query) {
+            return $this->model->where('Name', 'like', '%' . $query . '%')->paginate($perpage);
+        } else {
+            return $this->model->paginate($perpage);
+        }
+    }
+    
+
+
+
+    public function find($id){
+
+        $module = Module::findOrFail($id);
+        return $module;
+   }
+
+
+
+
+
+
+
+
+
+
 }
-
-
-
-
-
-
-
-
-
 
 
 
