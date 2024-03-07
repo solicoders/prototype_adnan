@@ -3,9 +3,7 @@
 
 
 namespace App\repositories\ModuleRepository;
-use App\Exports\ModuleExport;
 use App\Models\Module\Module;
-use Maatwebsite\Excel\Facades\Excel;
 use App\repositories\BaseRepository\BaseRepository;
 
 
