@@ -21,6 +21,8 @@ class AppServiceProvider extends ServiceProvider
     {
             $this->loadMigrationsFrom(database_path('migrations/module'));
             $this->loadMigrationsFrom(database_path('migrations/competences'));
+            $this->loadMigrationsFrom(database_path('migrations/user'));
+
 
     }
 }
