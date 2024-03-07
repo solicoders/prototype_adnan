@@ -18,12 +18,11 @@ use App\repositories\BaseRepository\BaseRepository;
 
 
 
-    public function paginatedData($perpage, $query = null){
-        if ($query) {
-            return $this->model->where('name', 'like', '%' . $query . '%')->paginate($perpage);
-        } else {
-            return $this->model->paginate($perpage);
-        }
+    public function getUser($query){
+        return User::with('ModuleRelation')
+             ->where(function($queryBuilder) use ($query) {
+                 $queryBuilder->where('name', 'like', '%' . $query . '%');
+             })->paginate(1); 
     }
     
 
