@@ -13,13 +13,14 @@ abstract class BaseRepository {
     }
 
 
-    public function store(array $validatedata){
+    public function create(array $validatedata){
         return $this->model->create($validatedata);
       }
     
       public function update($validatedata, $id){
         $findItem = $this->model->find($id);
-        return $findItem->update($validatedata);
+         $findItem->update($validatedata);
+         return $findItem;
       }
     
       public function paginatedData($perpage){
