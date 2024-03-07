@@ -7,11 +7,11 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>{{ __('Pages-text.Members list') }}</h1>
+                    <h1>{{ __('Pages-text.stagiaires list') }}</h1>
                 </div>
                 <div class="col-sm-6">
                     <div class="float-sm-right">
-                        <a href="{{route('members.create')}}" class="btn btnAdd">{{ __('Pages-text.Create a Member') }}</a>
+                        <a href="{{route('stagiaires.create')}}" class="btn btnAdd">{{ __('Pages-text.Create a stagiaire') }}</a>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                 </div>
                 
                 <div id="resulthtml">
-                    @include('members.membersTablePartial')
+                    @include('stagiaires.stagiairesTablePartial')
                 </div>
 
               </div>
@@ -75,21 +75,21 @@
 
 
 $(document).ready(function() {
-    $(document).on('click', '.delete-member', function () {
-        var membreId = $(this).data('member-id');
-        var membreName = $(this).data('member-name'); // Retrieve membre name
-        console.log(membreId);
-        console.log(membreName); // Log the membre name to verify
+    $(document).on('click', '.delete-stagiaire', function () {
+        var stagiaireId = $(this).data('stagiaire-id');
+        var stagiaireName = $(this).data('stagiaire-name'); // Retrieve stagiaire name
+        console.log(stagiaireId);
+        console.log(stagiaireName); // Log the stagiaire name to verify
 
-        var deleteUrl = "{{ route('members.destroy', ':id') }}";
-        deleteUrl = deleteUrl.replace(':id', membreId);
+        var deleteUrl = "{{ route('stagiaires.destroy', ':id') }}";
+        deleteUrl = deleteUrl.replace(':id', stagiaireId);
         console.log(deleteUrl);
 
-        // Update modal content with the membre name
+        // Update modal content with the stagiaire name
         $('#modal-default .modal-body').html(`
     <div>
-        {{ __('Pages-text.if you are sure you want to delete this Member') }}
-        <strong>"${membreName}"</strong>
+        {{ __('Pages-text.if you are sure you want to delete this stagiaire') }}
+        <strong>"${stagiaireName}"</strong>
         {{ __('Pages-text.Click the Delete button to continue') }}
     </div>
 `);        
@@ -102,7 +102,7 @@ $(document).ready(function() {
     // const tableContainer = $('#table-container');
     var searchQuery = '';
     const search = (query = '', page = 1) => {
-        $.ajax('{{ route('members.index') }}', {
+        $.ajax('{{ route('stagiaires.index') }}', {
             data: {
                 query: query,
                 page: page

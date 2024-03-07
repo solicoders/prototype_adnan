@@ -3,8 +3,8 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>{{ __('Pages-text.Member Name') }}</th>
-                    <th>{{ __('Pages-text.Member Email') }}</th>             
+                    <th>{{ __('Pages-text.stagiaire Name') }}</th>
+                    <th>{{ __('Pages-text.stagiaire Email') }}</th>             
                    <th class="text-center" >Actions</th>
 
                 </tr>
@@ -13,18 +13,18 @@
 
             <tbody id="tbodyresults">
           
-                @foreach($members as $member)
-                @unless($member->hasRole('project_leader'))
+                @foreach($stagiaires as $stagiaire)
+                @unless($stagiaire->hasRole('project_leader'))
                     <tr>
-                        <td>{{ $member->name }}</td>
-                        <td>{{ $member->email }}</td>
+                        <td>{{ $stagiaire->name }}</td>
+                        <td>{{ $stagiaire->email }}</td>
             
                         <td class="text-center">
-                            <a class="btn btn-primary btn-sm" href="{{ route('members.show', $member->id) }}">
+                            <a class="btn btn-primary btn-sm" href="{{ route('stagiaires.show', $stagiaire->id) }}">
                                 <i class="fas fa-folder"></i>
                             </a>
             
-                            <button type="button" class="btn btn-danger delete-member" data-toggle="modal" data-target="#modal-default" data-member-id="{{ $member->id }}" data-member-name="{{ $member->name }}">
+                            <button type="button" class="btn btn-danger delete-stagiaire" data-toggle="modal" data-target="#modal-default" data-stagiaire-id="{{ $stagiaire->id }}" data-stagiaire-name="{{ $stagiaire->name }}">
                                 <i class="fa-solid fa-trash-can"></i>
                             </button>
                         </td>
@@ -50,7 +50,7 @@
                 @method("DELETE")
 
                 <div class="modal-header">
-                    <h3 class="modal-title fs-5" id="exampleModalLabel">{{ __('Pages-text.Are you sure you want to delete this Member?') }}</h3>
+                    <h3 class="modal-title fs-5" id="exampleModalLabel">{{ __('Pages-text.Are you sure you want to delete this stagiaire?') }}</h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
@@ -78,30 +78,30 @@
         
             <div class="float-right">
             <div id="paginationContainer">                 
-                @if ($members->count() > 0)
+                @if ($stagiaires->count() > 0)
                 <ul class="pagination m-0">
-                    @if ($members->onFirstPage())
+                    @if ($stagiaires->onFirstPage())
                         <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
                             <span class="page-link" aria-hidden="true">«</span>
                         </li>
                     @else
                         <li class="page-item">
-                            <button class="page-link" page-number="{{ $members->currentPage() - 1 }}" rel="prev"
+                            <button class="page-link" page-number="{{ $stagiaires->currentPage() - 1 }}" rel="prev"
                                 aria-label="@lang('pagination.previous')">«</button>
                         </li>
                     @endif
         
-                    @for ($i = 1; $i <= $members->lastPage(); $i++)
-                        @if ($i == $members->currentPage())
+                    @for ($i = 1; $i <= $stagiaires->lastPage(); $i++)
+                        @if ($i == $stagiaires->currentPage())
                             <li class="page-item active" aria-current="page"><span class="page-link">{{ $i }}</span></li>
                         @else
                             <li class="page-item"><button class="page-link" page-number="{{ $i }}">{{ $i }}</button></li>
                         @endif
                     @endfor
         
-                    @if ($members->hasMorePages())
+                    @if ($stagiaires->hasMorePages())
                         <li class="page-item">
-                            <button class="page-link" page-number="{{ $members->currentPage() + 1 }}" rel="next"
+                            <button class="page-link" page-number="{{ $stagiaires->currentPage() + 1 }}" rel="next"
                                 aria-label="@lang('pagination.next')">»</button>
                         </li>
                     @else
@@ -115,14 +115,14 @@
         </div>  
         
          <div class="float-left d-flex">
-            <a href="{{route('export.member')}}" style="height: 38px;" class="btn text-black border border-dark">
+            <a href="{{route('export.stagiaire')}}" style="height: 38px;" class="btn text-black border border-dark">
                 {{ __('Pages-text.Export') }} <i class="fa-solid fa-upload pl-2"></i>
             </a>
             
-            <form action="{{ route('import.member') }}" class="pl-1" method="post" enctype="multipart/form-data" id="importForm">
+            <form action="{{ route('import.stagiaire') }}" class="pl-1" method="post" enctype="multipart/form-data" id="importForm">
                 @csrf 
-                <input type="file" name="members" id="formFileInputmembers" style="position: absolute; left: -9999px;">
-                <button type="button" id="fileButtonmembers" class="btn text-black border border-dark">{{ __('Pages-text.Import') }} <i class="fa-solid fa-download pl-2"></i></button>
+                <input type="file" name="stagiaires" id="formFileInputstagiaires" style="position: absolute; left: -9999px;">
+                <button type="button" id="fileButtonstagiaires" class="btn text-black border border-dark">{{ __('Pages-text.Import') }} <i class="fa-solid fa-download pl-2"></i></button>
             </form>
 
             
@@ -130,11 +130,11 @@
 
         <script>
         $(document).ready(function() {
-            $('#fileButtonmembers').click(function() {
-                $('#formFileInputmembers').click();
+            $('#fileButtonstagiaires').click(function() {
+                $('#formFileInputstagiaires').click();
             });
         
-            $('#formFileInputmembers').change(function() {
+            $('#formFileInputstagiaires').change(function() {
               
                 $('#importForm').submit();
             });

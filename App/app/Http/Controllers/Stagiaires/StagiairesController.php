@@ -14,7 +14,7 @@ use Illuminate\Http\RedirectResponse;
 use App\repositories\StagiaireRepository\StagiaireRepository;
 
 
-class UserController extends controller
+class StagiaireController extends controller
 {
 
     
@@ -31,15 +31,13 @@ class UserController extends controller
     public function index(Request $request)
     {
         
-
-        
             $query = $request->input('query');
-            $members = $this->userRepository->getUser($query);
+            $stagiaire = $this->userRepository->getUser($query);
         
             if ($request->ajax()) {
-                return view('members.membersTablePartial')->with('members', $members);
+                return view('stagiaire.stagiaireTablePartial')->with('stagiaire', $stagiaire);
             } 
-            return view('members.index')->with('members', $members);
+            return view('stagiaire.index')->with('stagiaire', $stagiaire);
       
     }
 
@@ -50,7 +48,7 @@ class UserController extends controller
 public function create()
 {
     
-    return view('members.create');
+    return view('stagiaire.create');
   
 }
 
@@ -76,7 +74,7 @@ public function create()
         $user->givePermissionTo('index-TasksController', 'index-ProjectController', 'show-ProjectController', 'show-TasksController');
     
         // Return a redirect response with a success message and the name of the user added
-        return redirect()->route('members.index')->with('success', 'Utilisateur ajouté avec succès');
+        return redirect()->route('stagiaire.index')->with('success', 'Utilisateur ajouté avec succès');
  
     }
     
@@ -88,17 +86,17 @@ public function create()
     public function destroy($id)
 {
     User::find($id)->delete();
-    return redirect()->route('members.index')->with('success', 'ce membre deleted successfully');
+    return redirect()->route('stagiaire.index')->with('success', 'ce membre deleted successfully');
 } 
 
 
 // ========= show ============
 public function show($id){
 
-    $member = User::find($id); 
-    if($member) {
+    $stagiaire = User::find($id); 
+    if($stagiaire) {
 
-        return view('members.view', compact('member'));
+        return view('stagiaire.view', compact('stagiaire'));
     } else {
         abort(404);
     }
@@ -120,12 +118,12 @@ public function show($id){
 
 
 //     $request->validate([
-//         'members' => 'required|mimes:xlsx,xls',
+//         'stagiaire' => 'required|mimes:xlsx,xls',
 //     ]);
 
 //     $import = new MemberImport;
 //     try {
-//         $importedRows = Excel::import($import, $request->file('members'));
+//         $importedRows = Excel::import($import, $request->file('stagiaire'));
     
 //         if($importedRows) {
       
@@ -134,11 +132,11 @@ public function show($id){
 //             $successMessage = 'Pas de nouvelles données à importer.';
 //         }
 
-//         return redirect('/members')->with('success', $successMessage);
+//         return redirect('/stagiaire')->with('success', $successMessage);
 //     } catch (\Exception $e) {
-//         return redirect('/members')->with('error', 'une erreur a été acourd vérifier la syntaxe');
+//         return redirect('/stagiaire')->with('error', 'une erreur a été acourd vérifier la syntaxe');
        
-//         // return redirect('/members')->with('error', $e->getMessage());
+//         // return redirect('/stagiaire')->with('error', $e->getMessage());
 //     }
 
 // }
