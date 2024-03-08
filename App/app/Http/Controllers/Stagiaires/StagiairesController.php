@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Stagiaires;
 
-use App\Models\User\User;
-use Illuminate\Http\Request;
+use App\Models\User;
+use App\Exports\UserExport;
 // use App\Exports\MemberExport;
 // use App\Imports\MemberImport;
+use Illuminate\Http\Request;
+use App\Exports\StagiaireExport;
+use App\Imports\StagiaireImport;
 use Illuminate\Validation\Rules;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -14,7 +17,7 @@ use Illuminate\Http\RedirectResponse;
 use App\repositories\StagiaireRepository\StagiaireRepository;
 
 
-class StagiaireController extends controller
+class StagiairesController extends controller
 {
 
     
@@ -32,12 +35,12 @@ class StagiaireController extends controller
     {
         
             $query = $request->input('query');
-            $stagiaire = $this->userRepository->getUser($query);
+            $stagiaires = $this->userRepository->getStagiaires($query);
         
             if ($request->ajax()) {
-                return view('stagiaire.stagiaireTablePartial')->with('stagiaire', $stagiaire);
+                return view('stagiaires.stagiairesTablePartial')->with('stagiaires', $stagiaires);
             } 
-            return view('stagiaire.index')->with('stagiaire', $stagiaire);
+            return view('stagiaires.index')->with('stagiaires', $stagiaires);
       
     }
 
@@ -48,7 +51,7 @@ class StagiaireController extends controller
 public function create()
 {
     
-    return view('stagiaire.create');
+    return view('stagiaires.create');
   
 }
 
@@ -70,11 +73,11 @@ public function create()
             'role' => "member", // Set the role column to 'member'
             'password' => Hash::make($request->password),
         ]);
-        $user->assignRole('member');
-        $user->givePermissionTo('index-TasksController', 'index-ProjectController', 'show-ProjectController', 'show-TasksController');
+        // $user->assignRole('member');
+        // $user->givePermissionTo('index-TasksController', 'index-ProjectController', 'show-ProjectController', 'show-TasksController');
     
         // Return a redirect response with a success message and the name of the user added
-        return redirect()->route('stagiaire.index')->with('success', 'Utilisateur ajouté avec succès');
+        return redirect()->route('stagiaires.index')->with('success', 'Utilisateur ajouté avec succès');
  
     }
     
@@ -86,7 +89,7 @@ public function create()
     public function destroy($id)
 {
     User::find($id)->delete();
-    return redirect()->route('stagiaire.index')->with('success', 'ce membre deleted successfully');
+    return redirect()->route('stagiaires.index')->with('success', 'ce membre deleted successfully');
 } 
 
 
@@ -96,50 +99,49 @@ public function show($id){
     $stagiaire = User::find($id); 
     if($stagiaire) {
 
-        return view('stagiaire.view', compact('stagiaire'));
+        return view('stagiaires.view', compact('stagiaire'));
     } else {
         abort(404);
     }
   
 
 }
-// ========= export ============
 
-// public function export() 
-// {
-//    return Excel::download(new MemberExport, 'Member.xlsx');
-// }
-
-
-// ========= import ============
-
-// public function import(Request $request)
-// {
+public function exportStagiaires() 
+{
+   return Excel::download(new StagiaireExport, 'User.xlsx');
+}
 
 
-//     $request->validate([
-//         'stagiaire' => 'required|mimes:xlsx,xls',
-//     ]);
 
-//     $import = new MemberImport;
-//     try {
-//         $importedRows = Excel::import($import, $request->file('stagiaire'));
+
+public function importStagiaires(Request $request)
+{
+
+
+    $request->validate([
+        'stagiaires' => 'required|mimes:xlsx,xls',
+    ]);
+
+    $import = new StagiaireImport;
+    try {
+        $importedRows = Excel::import($import, $request->file('stagiaires'));
     
-//         if($importedRows) {
+        if($importedRows) {
       
-//             $successMessage = 'Fichier importé avec succès.';
-//         } else {
-//             $successMessage = 'Pas de nouvelles données à importer.';
-//         }
+            $successMessage = 'Fichier importé avec succès.';
+        } else {
+            $successMessage = 'Pas de nouvelles données à importer.';
+        }
 
-//         return redirect('/stagiaire')->with('success', $successMessage);
-//     } catch (\Exception $e) {
-//         return redirect('/stagiaire')->with('error', 'une erreur a été acourd vérifier la syntaxe');
+        return redirect('/stagiaires')->with('success', $successMessage);
+    } catch (\Exception $e) {
+        return redirect('/stagiaires')->with('error', 'une erreur a été acourd vérifier la syntaxe');
        
-//         // return redirect('/stagiaire')->with('error', $e->getMessage());
-//     }
+        // return redirect('/stagiaire')->with('error', $e->getMessage());
+    }
 
-// }
+}
 
 
 }

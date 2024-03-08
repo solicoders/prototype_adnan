@@ -6,8 +6,8 @@ use App\Http\Controllers\Modules\ModulesController;
 
 
 Route::resource("modules", ModulesController::class);
-Route::get("export", [ModulesController::class, 'exportModules'])->name('export.modules');
-Route::post("import", [ModulesController::class, 'importModules'])->name('import.modules');
+Route::get("export-modules", [ModulesController::class, 'exportModules'])->name('export.modules');
+Route::post("import-modules", [ModulesController::class, 'importModules'])->name('import.modules');
 
 
 

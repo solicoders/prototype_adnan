@@ -44,7 +44,7 @@
                             <input type="text" name="search" class="form-control float-right"
                              id="searchInput" placeholder="{{ __('Pages-text.Search') }}">
                             <div class="input-group-append">
-                                <button type="submit" class="btn btn-default">
+                                <button type="submit" class="btn btn-primary btnAdd">
                                     <i class="fas fa-search"></i>
                                 </button>
                             </div>

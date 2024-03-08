@@ -14,7 +14,6 @@
             <tbody id="tbodyresults">
           
                 @foreach($stagiaires as $stagiaire)
-                @unless($stagiaire->hasRole('project_leader'))
                     <tr>
                         <td>{{ $stagiaire->name }}</td>
                         <td>{{ $stagiaire->email }}</td>
@@ -29,7 +28,6 @@
                             </button>
                         </td>
                     </tr>
-                @endunless
 
           
              @endforeach
@@ -115,11 +113,11 @@
         </div>  
         
          <div class="float-left d-flex">
-            <a href="{{route('export.stagiaire')}}" style="height: 38px;" class="btn text-black border border-dark">
+            <a href="{{route('export.stagiaires')}}" style="height: 38px;" class="btn text-black border border-dark">
                 {{ __('Pages-text.Export') }} <i class="fa-solid fa-upload pl-2"></i>
             </a>
             
-            <form action="{{ route('import.stagiaire') }}" class="pl-1" method="post" enctype="multipart/form-data" id="importForm">
+            <form action="{{ route('import.stagiaires') }}" class="pl-1" method="post" enctype="multipart/form-data" id="importForm">
                 @csrf 
                 <input type="file" name="stagiaires" id="formFileInputstagiaires" style="position: absolute; left: -9999px;">
                 <button type="button" id="fileButtonstagiaires" class="btn text-black border border-dark">{{ __('Pages-text.Import') }} <i class="fa-solid fa-download pl-2"></i></button>

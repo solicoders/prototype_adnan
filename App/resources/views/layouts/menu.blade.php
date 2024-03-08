@@ -21,7 +21,7 @@
     </a>
 </li>
 <li class="nav-item">
-    <a href="{{route('Stagiaires.index')}}" class="nav-link ">
+    <a href="{{route('stagiaires.index')}}" class="nav-link ">
         <i class="nav-icon fas fa-home"></i>
         <p>Stagiaires</p>
     </a>

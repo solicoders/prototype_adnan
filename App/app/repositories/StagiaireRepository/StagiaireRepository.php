@@ -3,7 +3,7 @@
 
 
 namespace App\repositories\StagiaireRepository;
-use App\Models\User\User;
+use App\Models\User;
 use App\repositories\BaseRepository\BaseRepository;
 
 
@@ -18,11 +18,10 @@ use App\repositories\BaseRepository\BaseRepository;
 
 
 
-    public function getUser($query){
-        return User::with('ModuleRelation')
-             ->where(function($queryBuilder) use ($query) {
+    public function getStagiaires($query){
+        return User::where(function($queryBuilder) use ($query) {
                  $queryBuilder->where('name', 'like', '%' . $query . '%');
-             })->paginate(1); 
+             })->paginate(10); 
     }
     
 

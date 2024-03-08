@@ -19,17 +19,19 @@ use App\repositories\BaseRepository\BaseRepository;
 
 
 
-    public function getCompetences($query){
-       return $competences = Competence::with('ModuleRelation')
+    public function getCompetences($query)
+    {
+        return Competence::with('ModuleRelation')
             ->where(function($queryBuilder) use ($query) {
                 $queryBuilder->where('title', 'like', '%' . $query . '%')
                              ->orWhereHas('ModuleRelation', function($moduleQuery) use ($query) {
                                  $moduleQuery->where('Name', 'like', '%' . $query . '%');
                              });
-            })->paginate(1); 
-
+            })->paginate(5); 
     }
 
+
+ 
 
 public function getAllCompetences(){
    return Module::all();

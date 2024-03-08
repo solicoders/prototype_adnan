@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">{{ __('Pages-text.Member Details') }}</h1>
+                    <h1 class="m-0">{{ __('Pages-text.stagiaire Details') }}</h1>
                 </div><!-- /.col -->
 
             </div><!-- /.row -->
@@ -24,7 +24,7 @@
             <!-- general form elements -->
             <div class="col-md-12 card card-secondary card-create">
               <div class="card-header">
-                <h3 class="card-title">{{ __('Pages-text.Show Member Details') }}</h3>
+                <h3 class="card-title">{{ __('Pages-text.Show stagiaire Details') }}</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -33,23 +33,23 @@
 
                   <div class="card card-secondary card-outline">
                     <div class="card-header">
-                      <h5 class="card-title m-0">{{ __('Pages-text.Member Name') }}</h5>
+                      <h5 class="card-title m-0">{{ __('Pages-text.stagiaire Name') }}</h5>
                     </div>
                     <div class="card-body">
 
 
-                      <p class="card-text">{{$member->name}}</p>
+                      <p class="card-text">{{$stagiaire->name}}</p>
 
                     </div>
                   </div>
                   <div class="card card-secondary card-outline">
                     <div class="card-header">
-                      <h5 class="card-title m-0">{{ __('Pages-text.Member Email') }}</h5>
+                      <h5 class="card-title m-0">{{ __('Pages-text.stagiaire Email') }}</h5>
                     </div>
                     <div class="card-body">
 
 
-                      <p class="card-text">{{$member->email}}</p>
+                      <p class="card-text">{{$stagiaire->email}}</p>
 
                     </div>
                   </div>  
@@ -61,7 +61,7 @@
               
 
                         <div class="ml-auto p-2">
-                            <a href="{{route('members.index')}}" class="btn btn-secondary">{{ __('Pages-text.Cancel') }}</a>
+                            <a href="{{route('stagiaires.index')}}" class="btn btn-secondary">{{ __('Pages-text.Cancel') }}</a>
                         </div>
                       </div>
 
