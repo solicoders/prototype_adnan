@@ -60,7 +60,7 @@ class CompetencesController extends Controller
   public function store(createCompetencesRequest $request)
   {
       $input = $request->all();
-      $this->competenceRepository->create($input);
+      $this->competenceRepository->store($input);
       return redirect()->route('competences.index')->with('success', 'produit ajouté avec succès');
   }
 

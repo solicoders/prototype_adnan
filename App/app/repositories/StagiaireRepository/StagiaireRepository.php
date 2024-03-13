@@ -3,7 +3,7 @@
 
 
 namespace App\repositories\StagiaireRepository;
-use App\Models\User;
+use App\Models\User\User;
 use App\repositories\BaseRepository\BaseRepository;
 
 
@@ -18,10 +18,12 @@ use App\repositories\BaseRepository\BaseRepository;
 
 
 
-    public function getStagiaires($query){
-        return User::where(function($queryBuilder) use ($query) {
-                 $queryBuilder->where('name', 'like', '%' . $query . '%');
-             })->paginate(10); 
+    public function paginatedData($perpage, $query = null){
+        if ($query) {
+            return $this->model->where('name', 'like', '%' . $query . '%')->paginate($perpage);
+        } else {
+            return $this->model->paginate($perpage);
+        }
     }
     
 
@@ -32,6 +34,13 @@ use App\repositories\BaseRepository\BaseRepository;
         $module = User::findOrFail($id);
         return $module;
    }
+
+
+
+
+
+
+
 
 
 

@@ -52,7 +52,7 @@ public function create()
 public function store(createModuleRequest $request)
 {
    $input = $request->all();
-   $this->moduleRepository->create($input);
+   $this->moduleRepository->store($input);
    return redirect()->route('modules.index')->with('success', 'module ajouté avec succèss');
 }
 
