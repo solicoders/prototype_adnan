@@ -2,13 +2,11 @@
 
 namespace Tests\Feature\CompetencesTest;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 
 
-use Carbon\Carbon;
+
+
 use App\Models\Competence\Competence;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use App\repositories\CompetenceRepository\CompetenceRepository;
 use Tests\TestCase;

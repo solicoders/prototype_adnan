@@ -30,7 +30,7 @@ class ModulesController extends Controller
     public function index(Request $request)
 {
     $query = $request->input('query');
-    $modules = $this->moduleRepository->paginatedData(2, $query); // Assuming 10 items per page
+    $modules = $this->moduleRepository->get_Allmodules(2, $query); // Assuming 10 items per page
     
     if ($request->ajax()) {
         return view('modules.moduleTablePartial')->with('modules', $modules);
