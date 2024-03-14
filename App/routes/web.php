@@ -22,7 +22,7 @@ Route::get('/phpinfo', function () {
 });
 
 
-Route::redirect('/', '/competences');
+// Route::redirect('/', '/competences');
 
 
 Auth::routes();

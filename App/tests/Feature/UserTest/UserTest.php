@@ -4,7 +4,7 @@ namespace Tests\Feature\UserTest;
 
 use Carbon\Carbon;
 use Tests\TestCase;
-use App\Models\User\User;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use App\repositories\StagiaireRepository\StagiaireRepository;
@@ -57,7 +57,7 @@ $User3 = User::create([
 
         // Call the getAllImages method with a search query
         $userName = 'Chef';
-        $result = $this->userRepository->paginatedData(6, $userName);
+        $result = $this->userRepository->getStagiaires($userName);
 
         // Assert that the result is a paginated collection
         $this->assertInstanceOf(\Illuminate\Pagination\LengthAwarePaginator::class, $result);
