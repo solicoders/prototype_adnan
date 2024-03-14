@@ -19,7 +19,7 @@ use App\repositories\BaseRepository\BaseRepository;
 
 
 
-    public function paginatedData($perpage, $query = null){
+    public function get_Allmodules($perpage, $query = null){
         if ($query) {
             return $this->model->where('Name', 'like', '%' . $query . '%')->paginate($perpage);
         } else {
