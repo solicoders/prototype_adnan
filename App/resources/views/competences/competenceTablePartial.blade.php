@@ -26,20 +26,26 @@
     <td>{{ $competence->ModuleRelation->Name }}</td>   
     <td class="project-actions text-center">
 
+
         <a class="btn btn-primary btn-sm" href="{{route('competences.show', $competence->id)}}">
             <i class="fas fa-folder"></i>
         </a>
+
+
+@can('edit-CompetencesController')
 
         {{-- edit --}}
         <a class="btn btn-info btn-sm" href="{{route('competences.edit', $competence->id)}}">
             <i class="fas fa-pencil-alt"></i>    
         </a>
+  @endcan
   
-  
+@can('destroy-CompetencesController')
               
         <button type="button" class="btn btn-danger delete-competence" data-toggle="modal" data-target="#modal-default" data-competence-id="{{ $competence->id }}" data-competence-title="{{ $competence->Title }}" >
             <i class="fa-solid fa-trash-can"></i>
                 </button>
+@endcan
 
     </td>
 </tr>
@@ -133,18 +139,20 @@
         </div>                                          
        
         <div class="float-left d-flex">
+            @can('export-CompetencesController')
 
             <a href="{{route('competence.export')}}"  style="height: 38px;" class="btn text-black border border-dark">
                 {{ __('Pages-text.Export') }} <i class="fa-solid fa-upload pl-2"></i>
             </a>
-  
-            
+          @endcan
+          @can('import-CompetencesController')
             <form action="{{route('competence.import')}}" class="pl-1" method="post" enctype="multipart/form-data" id="importForm">
                 @csrf 
                 <input type="file" name="competences" id="formFileInputtasks" style="position: absolute; left: -9999px;">
                 <button type="button" id="importbutton" class="btn text-black border border-dark">{{ __('Pages-text.Import') }} <i class="fa-solid fa-download pl-2"></i></button>
             </form>
 
+          @endcan
             
         </div>  
         <script>

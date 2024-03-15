@@ -28,17 +28,24 @@
     <td>{{ $module->End_Date }}</td>
 
         <td class="text-center">
+
+@can('edit-ModulesController')
+
             <a href="{{route('modules.edit', $module->id)}}" class="btn btn-sm btn-default"><i
                     class="fa-solid fa-pen-to-square"></i></a>
-
+@endcan
 
             <a href="{{route('competences.index', ['query' => $module->Name])}}"
                 class="btn btn-sm btn-default mx-2">{{ __('Pages-text.See Tasks')}}</a>
           
+@can('destroy-ModulesController')
                  
                     <button type="button" class="btn btn-danger delete-module" data-toggle="modal" data-target="#modal-default" data-module-id="{{ $module->id }}" data-module-name="{{ $module->Name }}" >
                 <i class="fa-solid fa-trash-can"></i>
                     </button>
+                    @endcan
+
+
 
                 <a class="btn btn-primary btn-sm" href="{{route('modules.show', $module->id)}}">
                     <i class="fas fa-folder"></i>          
@@ -137,16 +144,20 @@
         </div>
         
         <div class="float-left d-flex">
+@can('export-ModulesController')
+
             <a href="{{route('export.modules')}}" style="height: 38px;" class="btn text-black border border-dark">
                 {{ __('Pages-text.Export') }} <i class="fa-solid fa-upload pl-2"></i>
             </a>
-          
+          @endcan
+@can('import-ModulesController')
             
             <form action="{{route('import.modules')}}" class="pl-1" method="post" enctype="multipart/form-data" id="importForm">
                 @csrf 
                 <input type="file" name="modules" id="formFileInput" style="position: absolute; left: -9999px;">
                 <button type="button" id="fileButton" class="btn text-black border border-dark">{{ __('Pages-text.Import') }} <i class="fa-solid fa-download pl-2"></i></button>
             </form>
+          @endcan
             
         </div>
 

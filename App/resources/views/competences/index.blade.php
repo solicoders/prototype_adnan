@@ -11,9 +11,10 @@
             </div>
             <div class="col-sm-6">
                 <div class="float-sm-right">
-                    {{-- @can('create-CompetencesController') --}}
+                    
+                    @can('create-CompetencesController')
                     <a href="{{route('competences.create')}}" class="btn btn-primary btnAdd">{{ __('Pages-text.Create a Competences') }}</a>
-                    {{-- @endcan --}}
+                    @endcan
                 </div>
             </div>
         </div>
@@ -48,7 +49,7 @@
 
                             <div style="margin-top:1px;">
                                 <!-- Set width for select element -->
-                                <select id="filter_by_module"  style="width:250px;" name="module">
+                                <select id="filter_by_module" class="form-select"  style="width:250px;" name="module">
                                     <option value="">{{ __('Pages-text.All Modules') }}</option>
                                     @foreach($modules as $module)
                                         {{-- Check if the current module is the selected module --}}

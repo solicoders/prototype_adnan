@@ -10,8 +10,11 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="float-sm-right">
+                        @can('create-ModulesController')
                         <a href="{{route('modules.create')}}" class="btn btn-primary btnAdd">{{ __('Pages-text.Create a Module') }}</a>
+                   @endcan
                     </div>
+
                 </div>
             </div>
         </div>
