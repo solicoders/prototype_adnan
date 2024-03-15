@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Modules\ModulesController;
+use App\Http\Controllers\Stagiaires\StagiairesController;
 use App\Http\Controllers\Competences\CompetencesController;
 
 /*
@@ -16,13 +17,10 @@ use App\Http\Controllers\Competences\CompetencesController;
 |
 */
 
-Route::get('/phpinfo', function () {
-
-    phpinfo();
-});
 
 
-// Route::redirect('/', '/competences');
 
+
+Route::redirect('/', '/competences');
 
 Auth::routes();
