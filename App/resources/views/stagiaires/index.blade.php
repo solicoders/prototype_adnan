@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="float-sm-right">
-                        <a href="{{route('stagiaires.create')}}" class="btn btnAdd">{{ __('Pages-text.Create a stagiaire') }}</a>
+                        <a href="{{route('stagiaires.create')}}" class="btn btn-info btnAdd">  <i class="fas fa-plus"></i> {{ __('Pages-text.Create a stagiaire') }}</a>
                     </div>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                             <input type="text" name="search" class="form-control float-right"
                              id="searchInput" placeholder="{{ __('Pages-text.Search') }}">
                             <div class="input-group-append">
-                                <button type="submit" class="btn btn-primary btnAdd">
+                                <button type="submit" class="btn btn-default">
                                     <i class="fas fa-search"></i>
                                 </button>
                             </div>

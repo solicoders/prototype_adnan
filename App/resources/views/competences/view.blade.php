@@ -40,7 +40,7 @@
                     <div class="card-body">
 
 
-                      <p class="card-text">{{$Competence->Title}}</p>
+                      <p class="card-text">{{$competence->Title}}</p>
 
                     </div>
                   </div>
@@ -51,7 +51,7 @@
                     <div class="card-body">
 
 
-                      <p class="card-text">{{$Competence->Description}}</p>
+                      <p class="card-text">{{$competence->Description}}</p>
 
                     </div>
                   </div>

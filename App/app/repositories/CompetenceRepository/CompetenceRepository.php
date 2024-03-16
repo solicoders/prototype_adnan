@@ -36,6 +36,9 @@ use App\repositories\BaseRepository\BaseRepository;
 public function getAllCompetences(){
    return Module::all();
 
+
+
+   
 }
 
 

@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Competence\Competence;
 use App\Http\Requests\createCompetencesRequest;
+use App\Http\Controllers\AppBaseController\AppBaseController;
 use App\Repositories\CompetenceRepository\CompetenceRepository;
 
 
@@ -111,7 +112,7 @@ class CompetencesController extends Controller
   public function show($id){
       $competence = $this->competenceRepository->find($id);
       $moduleName = $competence->ModuleRelation->Name;
-      return view('Competences.view', compact('moduleName', 'Competence'));
+      return view('competences.view', compact('moduleName', 'competence'));
   }
   
 

@@ -1,9 +1,9 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <a href="" class="brand-link">
-        <img src="https://assets.infyom.com/logo/blue_logo_150x150.png"
+        <img src="{{asset('images/logo.png')}}"
              alt="AdminLTE Logo"
              class="brand-image img-circle elevation-3">
-        <span class="brand-text font-weight-light">{{ config('app.name') }}</span>
+        <p class="" style="font-size: 14px !important">Gestion Des competences</p>
     </a>
 
     <div class="sidebar">
