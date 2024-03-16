@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">{{ __('Pages-text.stagiaire Details') }}</h1>
+                    <h1 class="m-0">{{ __('Pages-text.Stagiaire Details') }}</h1>
                 </div><!-- /.col -->
 
             </div><!-- /.row -->
@@ -15,67 +15,31 @@
 
     <!-- Main content -->
    
-    <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="card">
+                      <div class="card-body">
+                          <div class="col-sm-12">
+                              <label for="nom">{{ __('Pages-text.Stagiaire Name') }} :</label>
+                              <p>{{$stagiaire->name}}</p>
+                          </div>
 
-        <div class="d-flex justify-content-center" >
-            <!-- general form elements -->
-            <div class="col-md-12 card card-secondary card-create">
-              <div class="card-header">
-                <h3 class="card-title">{{ __('Pages-text.Show stagiaire Details') }}</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
+                          <!-- Description Field -->
+                          <div class="col-sm-12">
+                              <label for="description">{{ __('Pages-text.Stagiaire Email') }} :</label>
+                              <p>{{$stagiaire->email}}</p>
 
-                <div class="card-body">
+                          </div>
 
-                  <div class="card card-secondary card-outline">
-                    <div class="card-header">
-                      <h5 class="card-title m-0">{{ __('Pages-text.stagiaire Name') }}</h5>
-                    </div>
-                    <div class="card-body">
-
-
-                      <p class="card-text">{{$stagiaire->name}}</p>
-
-                    </div>
-                  </div>
-                  <div class="card card-secondary card-outline">
-                    <div class="card-header">
-                      <h5 class="card-title m-0">{{ __('Pages-text.stagiaire Email') }}</h5>
-                    </div>
-                    <div class="card-body">
-
-
-                      <p class="card-text">{{$stagiaire->email}}</p>
-
-                    </div>
-                  </div>  
-                </div>
-                <!-- /.card-body -->
-
-                <div class="card-footer">
-                    <div class="d-flex">
-              
-
-                        <div class="ml-auto p-2">
-                            <a href="{{route('stagiaires.index')}}" class="btn btn-secondary">{{ __('Pages-text.Cancel') }}</a>
-                        </div>
+            
                       </div>
-
-                </div>
-            </div>
-            <!-- /.card -->
-
+                  </div>
+              </div>
           </div>
-
-
-      </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-
+      </div>
+  </section>
 
 
 

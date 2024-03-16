@@ -3,8 +3,8 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>{{ __('Pages-text.Modules Name') }}</th>
-                    <th>{{ __('Pages-text.Modules Description') }}</th>
+                    <th>{{ __('Pages-text.Module Name') }}</th>
+                    <th>{{ __('Pages-text.Module Description') }}</th>
                     <th>{{ __('Pages-text.Start date') }}</th>
                     <th>{{ __('Pages-text.End date') }}</th>
                     <th class="text-center">Actions</th>
@@ -29,7 +29,7 @@
                         <td>{{ $module->Start_Date }}</td>
                         <td>{{ $module->End_Date }}</td>
 
-                        <td class="text-center w-25">
+                        <td class="text-center w-35">
 
 
 
@@ -58,7 +58,7 @@
              
 
                             @can('destroy-ModulesController')
-                                <button type="button" class="btn btn-sm btn-danger" data-toggle="modal"
+                                <button type="button" class="btn btn-sm btn-danger delete-module" data-toggle="modal"
                                     data-target="#modal-default" data-module-id="{{ $module->id }}"
                                     data-module-name="{{ $module->Name }}">
                                     <i class="fa-solid fa-trash"></i>
@@ -75,6 +75,7 @@
                     <tr class="text-center">
                         <td colspan="5">
                             {{ __('Pages-text.No Modules found') }}
+                       
                         </td>
                     </tr>
                 @endforelse
@@ -164,7 +165,7 @@
 
         <div class="float-left d-flex">
             @can('export-ModulesController')
-                <a href="{{ route('export.modules') }}" style="height: 38px;" class="btn btn-default btn-sm">
+                <a href="{{ route('export.modules') }}" style="height: 32px;" class="btn btn-default btn-sm">
                     <i class="fa-solid fa-file-export"></i>  {{ __('Pages-text.Export') }}
                 </a>
 

@@ -5,7 +5,7 @@
                 <tr>
                     <th>{{ __('Pages-text.Competence Title') }}</th>
                     <th>{{ __('Pages-text.Competence Description') }}</th>
-                    <th>{{ __('Pages-text.Project Name') }}</th>
+                    <th>{{ __('Pages-text.Module Name') }}</th>
                     <th class="project-actions text-center">Actions</th>
                 </tr>
             </thead>
@@ -45,7 +45,7 @@
                             @endcan
 
                             @can('destroy-CompetencesController')
-                                <button type="button" class="btn btn-sm btn-danger" data-toggle="modal"
+                                <button type="button" class="btn btn-sm btn-danger delete-competence" data-toggle="modal"
                                     data-target="#modal-default" data-competence-id="{{ $competence->id }}"
                                     data-competence-title="{{ $competence->Title }}">
                                     <i class="fa-solid fa-trash"></i>
@@ -57,7 +57,7 @@
                 @empty
                     <tr class="text-center">
                         <td colspan="4">
-                            {{ __('Pages-text.No Modules found') }}
+                            {{ __('Pages-text.No Competences found') }}
                         </td>
                     </tr>
                 @endforelse
@@ -147,7 +147,7 @@
 
         <div class="float-left d-flex">
             @can('export-CompetencesController')
-                <a href="{{ route('competence.export') }}" style="height: 38px;" class="btn  btn-default btn-sm mt-0 mx-2">
+                <a href="{{ route('competence.export') }}" style="height: 32px;" class="btn  btn-default btn-sm mt-0 mx-2">
                     <i class="fa-solid fa-file-export"></i>   {{ __('Pages-text.Export') }} 
                 </a>
             @endcan

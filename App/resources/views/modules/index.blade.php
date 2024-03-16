@@ -80,9 +80,9 @@ $(document).ready(function() {
         // Update modal content with the module name
         $('#modal-default .modal-body').html(`
     <div>
-        {{ __('Pages-text.Are you sure you want to delete this module') }}
+        {{ __('Pages-text.Are you sure you want to delete this Module') }}
         <strong>"${moduleName}"</strong>
-        {{ __('Pages-text.Click delete to procced to delete this module') }}
+        {{ __('Pages-text.Click delete to procced to delete this Module') }}
     </div>
 `);
         

@@ -18,7 +18,7 @@
       <div class="container-fluid">
         <div class="">
             <!-- general form elements -->
-            <div class="card card-primary">
+            <div class="card card-info">
               <div class="card-header">
                 <h3 class="card-title">{{ __('Pages-text.Add a Module') }}</h3>
               </div>
@@ -29,7 +29,7 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="Name">{{ __('Pages-text.Module Name') }}</label>
-                    <input type="text" class="form-control" value="{{ old('name') }}" name="name" id="Name" placeholder="{{ __('Pages-text.Enter Project Name') }}">
+                    <input type="text" class="form-control" value="{{ old('name') }}" name="name" id="Name" placeholder="{{ __('Pages-text.Enter Module Name') }}">
                     <div style="color:red">
                         @error("name")
                         {{$message}}
@@ -39,7 +39,7 @@
 
                   <div class="form-group">
                     <label for="description">{{ __('Pages-text.Module Description') }}</label>
-                    <input type="text" class="form-control" value="{{ old('description') }}" id="description" name="description" placeholder="{{ __('Pages-text.Enter Project Description') }}">
+                    <input type="text" class="form-control" value="{{ old('description') }}" id="description" name="description" placeholder="{{ __('Pages-text.Enter Module Description') }}">
                     <div style="color:red">
                         @error("description")
                         {{$message}}
@@ -74,7 +74,7 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">{{ __('Pages-text.Add a Module') }}</button>
+                  <button type="submit" class="btn btn-info">{{ __('Pages-text.Add a Module') }}</button>
            
                     <a href="{{route('modules.index')}}" type="submit" class="btn btn-secondary">{{ __('Pages-text.Cancel') }}</a>
   

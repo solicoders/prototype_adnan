@@ -2,60 +2,88 @@
 
 namespace App\Providers;
 
-use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Filesystem\Filesystem;
 
 class RouteServiceProvider extends ServiceProvider
 {
     /**
-     * The path to your application's "home" route.
+     * Define your route model bindings, pattern filters, etc.
      *
-     * Typically, users are redirected here after authentication.
-     *
-     * @var string
+     * @return void
      */
-    public const HOME = '/home';
-
-    /**
-     * Define your route model bindings, pattern filters, and other route configuration.
-     */
-    public function boot(): void
+    public function boot()
     {
-        RateLimiter::for('api', function (Request $request) {
-            return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
-        });
+        //
 
-        $this->routes(function () {
-            Route::middleware('api')
-                ->prefix('api')
-                ->group(base_path('routes/api.php'));
-
-               Route::middleware('web')
-                ->group(base_path('routes/web.php'));
-
-                Route::middleware('web')
-                ->group(base_path('routes/competence/competences.php'));
-        
-                Route::middleware('web')
-                   ->group(base_path('routes/module/module.php'));
-
-                Route::middleware('web')
-                ->group(base_path('routes/stagiaire/stagiaire.php'));
-
-                Route::middleware('web')
-                ->group(base_path('routes/home/home.php'));
-                   
-        });
- 
-
-        
+        parent::boot();
     }
 
+    /**
+     * Define the routes for the application.
+     *
+     * @return void
+     */
+    public function map()
+    {
+        $this->mapApiRoutes();
 
+        $this->mapWebRoutes();
 
+        // Dynamically load routes from subdirectories
+        $this->mapSubdirectoryRoutes();
+    }
 
+    /**
+     * Define the "web" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapWebRoutes()
+    {
+        Route::middleware('web')
+            ->group(base_path('routes/web.php'));
+    }
 
+    /**
+     * Define the "api" routes for the application.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+    protected function mapApiRoutes()
+    {
+        Route::middleware('api')
+            ->prefix('api')
+            ->group(base_path('routes/api.php'));
+    }
+
+    /**
+     * Dynamically load routes from subdirectories.
+     *
+     * @return void
+     */
+    protected function mapSubdirectoryRoutes()
+    {
+        $filesystem = new Filesystem();
+
+        $routePath = base_path('routes');
+
+        // Get all subdirectories in the routes directory
+        $directories = $filesystem->directories($routePath);
+
+        foreach ($directories as $directory) {
+            $routeFiles = $filesystem->files($directory);
+
+            foreach ($routeFiles as $file) {
+                // Load routes from each file within the subdirectory
+                Route::middleware('web')
+                    ->group($file->getPathname());
+            }
+        }
+    }
 }
