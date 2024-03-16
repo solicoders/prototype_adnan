@@ -25,7 +25,7 @@
 
                             <div class="card card-info">
                                 <div class="card-header">
-                                    <h2 class="card-title"> <i class="nav-icon fas fa-tasks"></i> Ajouter Une Tâche</h2>
+                                    <h2 class="card-title"> <i class="nav-icon fas fa-tasks"></i> Ajouter Une compétence</h2>
                                 </div>
                                 <!-- Inclusion du formulaire -->
                                 <?php include_once "./form.php" ?>

@@ -24,7 +24,7 @@
 
                             <div class="card card-info">
                                 <div class="card-header">
-                                    <h3 class="card-title"> <i class="nav-icon fas fa-table"></i> Ajouter un Projet</h3>
+                                    <h3 class="card-title"> <i class="nav-icon fas fa-table"></i> Ajouter un module</h3>
                                 </div>
                                 <!-- Obtenir le formulaire -->
                                 <?php include_once "./form.php" ?>

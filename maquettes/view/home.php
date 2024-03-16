@@ -29,12 +29,12 @@
                             <div class="small-box bg-info">
                                 <div class="inner">
                                     <h3>15</h3>
-                                    <p>Projets</p>
+                                    <p>modules</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-bag"></i>
                                 </div>
-                                <a href="./projets/index.php" class="small-box-footer">Plus d'informations <i class="fas fa-arrow-circle-right"></i></a>
+                                <a href="./modules/index.php" class="small-box-footer">Plus d'informations <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
 

@@ -5,7 +5,7 @@ $current_route = $_SERVER['REQUEST_URI'];
   <!-- Logo de la marque -->
   <a href="/view/home.php" class="brand-link">
     <img src="/view/assets/images/logo.png" class="brand-image img-circle elevation-3" alt="Image de groupe">
-    <span class="brand-text font-weight-light text-center h6">Gestion des Projets</span>
+    <span class="brand-text font-weight-light text-center h6">Gestion des modules</span>
   </a>
 
   <!-- Barre latérale -->
@@ -22,27 +22,27 @@ $current_route = $_SERVER['REQUEST_URI'];
             </a>
           </li>
           <li class="nav-item">
-            <a href="/view/projets/index.php" class="nav-link <?php echo (strpos($current_route, 'projets') !== false) ? 'active' : ''; ?>">
+            <a href="/view/modules/index.php" class="nav-link <?php echo (strpos($current_route, 'modules') !== false) ? 'active' : ''; ?>">
               <i class="nav-icon fas fa-table"></i>
               <p>
-                Projets
+                modules
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="/view/taches/index.php" class="nav-link <?php echo (strpos($current_route, 'taches') !== false) ? 'active' : ''; ?>">
+            <a href="/view/competences/index.php" class="nav-link <?php echo (strpos($current_route, 'taches') !== false) ? 'active' : ''; ?>">
               <i class="nav-icon fas fa-tasks"></i>
               <p>
-                Tâches
+                compétences
               </p>
             </a>
           </li>
           <!-- MEMBRE -->
           <li class="nav-item">
-            <a href="/view/utilisateurs/index.php" class="nav-link <?php echo (strpos($current_route, 'utilisateurs') !== false) ? 'active' : ''; ?>">
+            <a href="/view/stagiaires/index.php" class="nav-link <?php echo (strpos($current_route, 'utilisateurs') !== false) ? 'active' : ''; ?>">
               <i class="fa-solid fa-users pl-1 pr-1"></i>
               <p>
-                Utilisateur
+              stagiaires
               </p>
             </a>
         </li>
