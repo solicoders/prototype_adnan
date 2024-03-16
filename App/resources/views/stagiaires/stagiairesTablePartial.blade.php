@@ -19,14 +19,18 @@
                         <td>{{ $stagiaire->email }}</td>
             
                         <td class="text-center">
-                            <a class="btn btn-primary btn-sm" href="{{ route('stagiaires.show', $stagiaire->id) }}">
-                                <i class="fas fa-folder"></i>
+                            <a class="btn btn-default btn-sm'" href="{{ route('stagiaires.show', $stagiaire->id) }}">
+                                <i class="far fa-eye"></i>
                             </a>
-            
-                            <button type="button" class="btn btn-danger delete-stagiaire" data-toggle="modal" data-target="#modal-default" data-stagiaire-id="{{ $stagiaire->id }}" data-stagiaire-name="{{ $stagiaire->name }}">
-                                <i class="fa-solid fa-trash-can"></i>
+                   
+                            <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-default" data-stagiaire-id="{{ $stagiaire->id }}" data-stagiaire-name="{{ $stagiaire->name }}">
+                                <i class="fa-solid fa-trash"></i>
                             </button>
                         </td>
+
+
+
+                        
                     </tr>
 
           
@@ -113,14 +117,14 @@
         </div>  
         
          <div class="float-left d-flex">
-            <a href="{{route('export.stagiaires')}}" style="height: 38px;" class="btn text-black border border-dark">
-                {{ __('Pages-text.Export') }} <i class="fa-solid fa-upload pl-2"></i>
+            <a href="{{route('export.stagiaires')}}" style="height: 38px;" class="btn btn-default btn-sm">
+                <i class="fa-solid fa-file-export"></i>  {{ __('Pages-text.Export') }}
             </a>
             
             <form action="{{ route('import.stagiaires') }}" class="pl-1" method="post" enctype="multipart/form-data" id="importForm">
                 @csrf 
                 <input type="file" name="stagiaires" id="formFileInputstagiaires" style="position: absolute; left: -9999px;">
-                <button type="button" id="fileButtonstagiaires" class="btn text-black border border-dark">{{ __('Pages-text.Import') }} <i class="fa-solid fa-download pl-2"></i></button>
+                <button type="button" id="fileButtonstagiaires" class="btn btn-default btn-sm mt-0 mx-2"><i class="fa-solid fa-file-arrow-down"></i> {{ __('Pages-text.Import') }} </button>
             </form>
 
             

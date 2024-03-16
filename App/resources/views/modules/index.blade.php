@@ -6,12 +6,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>{{ __('Pages-text.Projects list') }}</h1>
+                    <h1>{{ __('Pages-text.Modules list') }}</h1>
                 </div>
                 <div class="col-sm-6">
                     <div class="float-sm-right">
                         @can('create-ModulesController')
-                        <a href="{{route('modules.create')}}" class="btn btn-primary btnAdd">{{ __('Pages-text.Create a Module') }}</a>
+                        <a href="{{route('modules.create')}}" class="btn btn-info btnAdd">  <i class="fas fa-plus"></i> {{ __('Pages-text.Create a Module') }}</a>
                    @endcan
                     </div>
 

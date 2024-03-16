@@ -13,7 +13,7 @@
                 <div class="float-sm-right">
                     
                     @can('create-CompetencesController')
-                    <a href="{{route('competences.create')}}" class="btn btn-primary btnAdd">{{ __('Pages-text.Create a Competences') }}</a>
+                    <a href="{{route('competences.create')}}" class="btn btn-info btnAdd"><i class="fas fa-plus"></i> {{ __('Pages-text.Create a Competences') }}</a>
                     @endcan
                 </div>
             </div>

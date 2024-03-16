@@ -18,7 +18,7 @@ use App\Repositories\CompetenceRepository\CompetenceRepository;
 
 
 
-class CompetencesController extends AppBaseController
+class CompetencesController extends Controller
 {
     
     protected $competenceRepository;
