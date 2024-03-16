@@ -19,7 +19,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Détails du projet</h1>
+                            <h1>Détails du module</h1>
                         </div>
                         <div class="col-sm-6">
                             <a href="./edit.php" class="btn btn-default float-right"><i class="far fa-edit"></i> Modifier</a>
@@ -35,13 +35,13 @@
                                 <div class="card-body">
                                     <div class="col-sm-12">
                                         <label for="nom">Nom:</label>
-                                        <p>Projet 1</p>
+                                        <p>module 1</p>
                                     </div>
 
                                     <!-- Description Field -->
                                     <div class="col-sm-12">
                                         <label for="description">Description:</label>
-                                        <p>Description du projet 1.</p>
+                                        <p>Description du module 1.</p>
                                     </div>
 
                                     <!-- Description Field -->

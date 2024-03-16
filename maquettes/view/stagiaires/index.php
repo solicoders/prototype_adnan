@@ -19,13 +19,13 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Liste des Utilisateur</h1>
+                            <h1>Liste des stagiaires</h1>
                         </div>
                         <div class="col-sm-6">
                             <div class="float-sm-right">
                                 <!-- btnAdd -->
                                 <a href="./ajouter.php" class="btn btn-info">
-                                    <i class="fas fa-plus"></i> Nouveau Member
+                                    <i class="fas fa-plus"></i> Nouveau stagiaire
                                 </a>
                             </div>
                         </div>

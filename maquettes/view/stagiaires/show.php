@@ -19,7 +19,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Détails du tache</h1>
+                            <h1>Détails du module</h1>
                         </div>
                         <div class="col-sm-6">
                             <a href="./edit.php" class="btn btn-default float-right"><i class="far fa-edit"></i> Modifier</a>
@@ -35,26 +35,19 @@
                                 <div class="card-body">
                                     <div class="col-sm-12">
                                         <label for="nom">Nom:</label>
-                                        <p>tâche 1</p>
-                                    </div>
-
-                                    <!-- Projects Title -->
-                                    <div class="col-sm-12">
-                                        <label for="description">Titre du projet:</label>
-                                        <p>Projet1 </p>
+                                        <p>alami</p>
                                     </div>
 
                                     <!-- Description Field -->
                                     <div class="col-sm-12">
-                                        <label for="description">Description:</label>
-                                        <p>Description du tâche 1.</p>
+                                        <label for="description">Prénom:</label>
+                                        <p>ahmed</p>
                                     </div>
 
                                     <!-- Description Field -->
                                     <div class="col-sm-12">
-                                        <label for="description">Date:</label>
-                                        <p>Date de début: 11-7-2014</p>
-                                        <p>Date de fin: 11-7-2014</p>
+                                        <label for="description">Email</label>
+                                        <p>ahmed@gmail.com </p>
                                     </div>
                                 </div>
                             </div>

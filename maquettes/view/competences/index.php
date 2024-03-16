@@ -19,12 +19,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Liste des tâches</h1>
+                            <h1>Liste des compétences</h1>
                         </div>
                         <div class="col-sm-6">
                             <div class="float-sm-right">
                                 <a href="./ajouter.php" class="btn btn-info">
-                                    <i class="fas fa-plus"></i> Nouveau Tâche
+                                    <i class="fas fa-plus"></i> Nouveau compétence
                                 </a>
                             </div>
                         </div>
@@ -43,12 +43,12 @@
                                         <div class="dropdown input-group">
                                             <button class="btn btn-default mr-3 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <i class="fa-solid fa-filter text-dark pr-2 border-right"></i>
-                                                Projet1
+                                                module1
                                             </button>
 
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a class="dropdown-item" href="/projects/{{$project->id}}/tasks">Projet2</a>
-                                                <a class="dropdown-item" href="/projects/{{$project->id}}/tasks">Projet3</a>
+                                                <a class="dropdown-item" href="/modules/{{$module->id}}/tasks">module2</a>
+                                                <a class="dropdown-item" href="/modules/{{$module->id}}/tasks">module3</a>
                                             </div>
                                         </div>
 
@@ -69,8 +69,8 @@
                                     <table class="table table-striped text-nowrap">
                                         <thead>
                                             <tr>
-                                                <th>Titre de la tâche</th>
-                                                <th>Titre du projet</th>
+                                                <th>Titre de la compétence</th>
+                                                <th>Titre du module</th>
                                                 <th>Date de début</th>
                                                 <th>Date de fin</th>
                                                 <th>Actions</th>
@@ -78,9 +78,9 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>tâche 1</td>
+                                                <td>compétence 1</td>
                                                 <td>
-                                                    Projet1
+                                                    module1
                                                 </td>
                                                 <td>11-7-2014</td>
                                                 <td>11-7-2014</td>
@@ -94,9 +94,9 @@
 
                                             </tr>
                                             <tr>
-                                                <td>tâche 2</td>
+                                                <td>compétence 2</td>
                                                 <td>
-                                                    Projet1
+                                                    module1
                                                 </td>
                                                 <td>11-7-2014</td>
                                                 <td>11-7-2014</td>
@@ -109,9 +109,9 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>tâche 3</td>
+                                                <td>compétence 3</td>
                                                 <td>
-                                                    Projet1
+                                                    module1
                                                 </td>
                                                 <td>11-7-2014</td>
                                                 <td>11-7-2014</td>

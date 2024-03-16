@@ -7,7 +7,7 @@
 <div class="login-box">
         <div class="login-logo">
             <img src="./view/assets/images/logo.png" alt="" srcset="" width="90px">
-            <h4>Gestion des Projet</h4>
+            <h4>Gestion des competences</h4>
         </div>
         <!-- /.login-logo -->
         
@@ -19,7 +19,7 @@
 
                 <form method="post">
                     <div class="input-group mb-3">
-                        <input type="email" name="email" value="chef-project@solicode.com" placeholder="Email" class="form-control" autofocus>
+                        <input type="email" name="email" value="chef-module@solicode.com" placeholder="Email" class="form-control" autofocus>
                         <div class="input-group-append">
                             <div class="input-group-text"><span class="fas fa-envelope"></span></div>
                         </div>
@@ -38,8 +38,8 @@
                     <div class="row">
                         <div class="col-7">
                             <div class="icheck-primary">
-                                <input type="checkbox" id="remember">
-                                <label for="remember">Se souvenir de moi</label>
+                                <input type="checkbox" id="restagiaire">
+                                <label for="restagiaire">Se souvenir de moi</label>
                             </div>
                         </div>
 

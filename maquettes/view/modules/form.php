@@ -2,7 +2,7 @@
     <div class="card-body">
         <div class="form-group">
             <label for="inputNom">Titre</label>
-            <input name="projectName" type="text" class="form-control" id="inputNom" placeholder="Entrez le titre" value="CNMH">
+            <input name="moduleName" type="text" class="form-control" id="inputNom" placeholder="Entrez le titre" value="CNMH">
         </div>
 
         <div class="form-group">
@@ -17,7 +17,7 @@
 
         <div class="form-group">
             <label for="inputDescription">Description</label>
-            <textarea name="projectDescription" class="form-control" rows="7" id="inputDescription" placeholder="Entrez la description">Description de CNMH</textarea>
+            <textarea name="moduleDescription" class="form-control" rows="7" id="inputDescription" placeholder="Entrez la description">Description de CNMH</textarea>
         </div>
 
     </div>

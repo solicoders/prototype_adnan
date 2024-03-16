@@ -18,12 +18,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Liste des projets</h1>
+                            <h1>Liste des modules</h1>
                         </div>
                         <div class="col-sm-6">
                             <div class="float-sm-right">
                                 <a href="./create.php" class="btn btn-info">
-                                    <i class="fas fa-plus"></i> Nouveau projet
+                                    <i class="fas fa-plus"></i> Nouveau module
                                 </a>
                             </div>
 
@@ -62,14 +62,14 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>Projet 1</td>
+                                                <td>module 1</td>
                                                 <td>
-                                                    Description du projet 1.
+                                                    Description du module 1.
                                                 </td>
                                                 <td>11-7-2014</td>
                                                 <td>11-7-2014</td>
                                                 <td class="text-center">
-                                                <a href="../taches/index.php" class="btn btn-sm btn-secondary mx-2"><i class="nav-icon fas fa-tasks"></i> Les Tâches</a>
+                                                <a href="../taches/index.php" class="btn btn-sm btn-secondary mx-2"><i class="nav-icon fas fa-tasks"></i> Les compétences</a>
                                                     <a href="./show.php" class='btn btn-default btn-sm'>
                                                         <i class="far fa-eye"></i>
                                                     </a>
@@ -78,14 +78,14 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Projet 2</td>
+                                                <td>module 2</td>
                                                 <td>
-                                                    Description du projet 2.
+                                                    Description du module 2.
                                                 </td>
                                                 <td>11-7-2014</td>
                                                 <td>11-7-2014</td>
                                                 <td class="text-center">
-                                                <a href="../taches/index.php" class="btn btn-sm btn-secondary mx-2"><i class="nav-icon fas fa-tasks"></i> Les Tâches</a>
+                                                <a href="../taches/index.php" class="btn btn-sm btn-secondary mx-2"><i class="nav-icon fas fa-tasks"></i> Les compétences</a>
                                                     <a href="./show.php" class='btn btn-default btn-sm'>
                                                         <i class="far fa-eye"></i>
                                                     </a>
@@ -94,14 +94,14 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Projet 3</td>
+                                                <td>module 3</td>
                                                 <td>
-                                                    Description du projet 3.
+                                                    Description du module 3.
                                                 </td>
                                                 <td>11-7-2014</td>
                                                 <td>11-7-2014</td>
                                                 <td class="text-center">
-                                                <a href="../taches/index.php" class="btn btn-sm btn-secondary mx-2"><i class="nav-icon fas fa-tasks"></i> Les Tâches</a>
+                                                <a href="../taches/index.php" class="btn btn-sm btn-secondary mx-2"><i class="nav-icon fas fa-tasks"></i> Les compétences</a>
                                                     <a href="./show.php" class='btn btn-default btn-sm'>
                                                         <i class="far fa-eye"></i>
                                                     </a>
