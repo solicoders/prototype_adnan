@@ -14,6 +14,25 @@
                 </ul>
 
                 <ul class="navbar-nav ml-auto">
+
+                    <li class="nav-item dropdown mt-2">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" style="margin-top: -9px;">
+                            <i class="fas fa-globe text-lg"></i>
+                            {{__('Pages-text.language')}}
+                            <span class="caret mt-1"></span>
+                        </a>
+                    
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="{{ route('localization', ['locale' => 'fr']) }}">French <img  src="{{ asset('images/fr.png') }}" style="width: 24px;" alt="French Flag" class="ml-2 flag-icon"></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ route('localization', ['locale' => 'en']) }}">English <img src="{{ asset('images/england2.png') }}" style="width: 24px;" alt="English Flag" class="ml-2 flag-icon"></a>
+                        </div>
+                    </li>
+                    
+
+
+
+
                     <li class="nav-item dropdown user-menu">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                             <img src="{{asset('images/man.png')}}"
@@ -43,7 +62,16 @@
                             </li>
                         </ul>
                     </li>
+
+
+                    
                 </ul>
+
+                
+              
+
+                
+                
             </nav>
 
             <!-- Left side column. contains the logo and sidebar -->
@@ -52,6 +80,8 @@
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
                 @yield('content')
+
+                
             </div>
 
             <!-- Main Footer -->

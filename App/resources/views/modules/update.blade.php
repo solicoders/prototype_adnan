@@ -18,7 +18,7 @@
       <div class="container-fluid">
         <div class="d-flex justify-content-center">
             <!-- general form elements -->
-            <div class="col-md-12 card card-primary px-0">
+            <div class="col-md-12 card card-info px-0">
               <div class="card-header">
                 <h3 class="card-title">{{ __('Pages-text.Edit Module') }}</h3>
               </div>
@@ -29,7 +29,7 @@
                 @method("PUT")
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="Name">{{ __('Pages-text.module Name') }}</label>
+                    <label for="Name">{{ __('Pages-text.Module Name') }}</label>
                     <input type="text" class="form-control" value="{{ $module->Name }}" name="name" id="Name" placeholder="{{ __('Pages-text.Enter Module Name') }}">
                     <div style="color:red">
                         @error("name")
@@ -38,16 +38,7 @@
                         </div>
                   </div>
 
-                  <div class="form-group">
-                    <label for="description">{{ __('Pages-text.module Description') }}</label>
-                    <input type="text" class="form-control" value="{{ $module->Description }}" id="description" name="description" placeholder="{{ __('Pages-text.Enter Module Description') }}">
-                    <div style="color:red">
-                        @error("description")
-                        {{$message}}
-                        @enderror
-                        </div>               
-                  </div>
-               
+          
 
                   <div class="form-group">
                     <label for="start_date">{{ __('Pages-text.Start date') }}</label>
@@ -69,12 +60,24 @@
                       </div>
                   </div>
                
-        
+                  <div class="form-group">
+                    <label for="description">{{ __('Pages-text.Module Description') }}</label>
+                    
+                    <input type="text" class="form-control" value="{{ $module->Description }}" id="description" name="description" placeholder="{{ __('Pages-text.Enter Module Description') }}">
+                    <div style="color:red">
+                        @error("description")
+                        {{$message}}
+                        @enderror
+                        </div>               
+                  </div>
+               
+
+
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">{{ __('Pages-text.Edit Module') }}</button>
+                  <button type="submit" class="btn btn-info">{{ __('Pages-text.Edit Module') }}</button>
            
                     <a href="{{route('modules.index')}}" type="submit" class="btn btn-secondary">{{ __('Pages-text.Cancel') }}</a>
   

@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Auth;
+use App\Http\Middleware\Localization;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\Modules\ModulesController;
 use App\Http\Controllers\Stagiaires\StagiairesController;
 use App\Http\Controllers\Competences\CompetencesController;
@@ -19,8 +21,6 @@ use App\Http\Controllers\Competences\CompetencesController;
 
 
 
-
-
 Route::redirect('/', '/competences');
+Auth::routes(['register' => false]);
 
-Auth::routes();

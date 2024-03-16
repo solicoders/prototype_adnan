@@ -38,14 +38,37 @@ class CompetencesController extends Controller
         $competences = $this->competenceRepository->getCompetences($query);
     
         if ($request->ajax()) {
-            return view('competences.competencesTablePartial', compact('competences'));
+            return view('competences.competenceTablePartial', compact('competences'));
         } else {
             $modules = Module::all();
             return view('competences.index', compact('competences', 'modules', 'ModuleName'));       
         }
     }
     
-    
+    // public function index(Request $request)
+    // {
+
+    //     $ModuleName = $request->input('query');
+    //     $query = $request->input('query');
+
+    //     // ===================== i used belongsto tasks belong to project to here  =========
+    //     $competences = Competence::with('ModuleRelation')
+    //         ->where(function($queryBuilder) use ($query) {
+    //             $queryBuilder->where('title', 'like', '%' . $query . '%')
+    //                          ->orWhereHas('ModuleRelation', function($projectQuery) use ($query) {
+    //                              $projectQuery->where('Name', 'like', '%' . $query . '%');
+    //                          });
+    //         })
+    //         ->paginate(2); 
+        
+
+    //     if ($request->ajax()) {
+    //         return view('competences.competenceTablePartial', compact('competences'));
+    //     } else {
+    //         $modules = Module::all();
+    //         return view('competences.index', compact('competences', 'modules', 'ModuleName'));       
+    //     }
+    // }
 
 
   // ======= create =========

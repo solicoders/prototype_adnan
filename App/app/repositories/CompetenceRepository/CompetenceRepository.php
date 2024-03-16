@@ -27,7 +27,7 @@ use App\repositories\BaseRepository\BaseRepository;
                              ->orWhereHas('ModuleRelation', function($moduleQuery) use ($query) {
                                  $moduleQuery->where('Name', 'like', '%' . $query . '%');
                              });
-            })->paginate(5); 
+            })->paginate(10); 
     }
 
 
@@ -38,7 +38,7 @@ public function getAllCompetences(){
 
 
 
-   
+
 }
 
 

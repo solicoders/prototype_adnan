@@ -13,7 +13,7 @@
                 <div class="float-sm-right">
                     
                     @can('create-CompetencesController')
-                    <a href="{{route('competences.create')}}" class="btn btn-info btnAdd"><i class="fas fa-plus"></i> {{ __('Pages-text.Create a Competences') }}</a>
+                    <a href="{{route('competences.create')}}" class="btn btn-info btnAdd"><i class="fas fa-plus"></i> {{ __('Pages-text.Create a Competence') }}</a>
                     @endcan
                 </div>
             </div>
@@ -49,7 +49,7 @@
 
                             <div style="margin-top:1px;">
                                 <!-- Set width for select element -->
-                                <select id="filter_by_module" class="form-select"  style="width:250px;" name="module">
+                                <select id="filter_by_modules" class="form-select"  style="width:250px;" name="module">
                                     <option value="">{{ __('Pages-text.All Modules') }}</option>
                                     @foreach($modules as $module)
                                         {{-- Check if the current module is the selected module --}}
@@ -93,9 +93,8 @@
 
 @endsection
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src=" https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js "></script>
 <script>
 
 
@@ -127,7 +126,8 @@ $(document).ready(function() {
 
 
 
-    const tableContainer = $('#table-container');
+  
+const tableContainer = $('#table-container');
     var searchQuery = '';
     const search = (query = '', page = 1) => {
         $.ajax('{{ route('competences.index') }}', {
@@ -135,7 +135,6 @@ $(document).ready(function() {
                 query: query,
                 page: page
             },
-            
             success: (data) => updateTable(data)
         });
         history.pushState(null, null, '?query=' + query + '&page=' + page);
@@ -145,17 +144,18 @@ $(document).ready(function() {
 
 const updateTable = (html) => {
     try {
-        $('#resulthtml').html(html); // Target the tbody element and update its content
+        $('#resulthtml').html(html); 
         updatePaginationLinks();
         console.log(html);
     } catch (error) {
-        // console.error('Error updating table:', error);
+        console.error('Error updating table:', error);
     }
 };
 
 
 const updatePaginationLinks = () => {
     // console.log('updatePaginationLinks');
+
             $('button[page-number]').each(function() {
                 $(this).on('click', function() {
                 // console.log('click');
@@ -166,28 +166,37 @@ const updatePaginationLinks = () => {
             })
         }
      
+
         
     $(document).ready(() => {
+    // console.log('hey')
+  
         $('#searchInput').on('input', function() {
             searchQuery = $('#searchInput').val();
             // searchQuery = $(this).val();
-            console.log(searchQuery)
+    console.log(searchQuery)
 
             search(searchQuery);
         });
+
         updatePaginationLinks();
+        
     });
 
     $(document).ready(() => {
-        $('#filter_by_module').on('input', function() {
-            searchQuery = $('#filter_by_module').val();
+    // console.log('hey')
+  
+        $('#filter_by_modules').on('input', function() {
+            searchQuery = $('#filter_by_modules').val();
+            // searchQuery = $(this).val();
+           console.log(searchQuery)
+
             search(searchQuery);
         });
-        updatePaginationLinks();     
-    });
 
-   
-  
+        updatePaginationLinks();
+        
+    });
 </script>
 
 

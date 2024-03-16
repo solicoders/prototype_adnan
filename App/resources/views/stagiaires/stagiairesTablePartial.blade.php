@@ -3,8 +3,8 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>{{ __('Pages-text.stagiaire Name') }}</th>
-                    <th>{{ __('Pages-text.stagiaire Email') }}</th>             
+                    <th>{{ __('Pages-text.Stagiaire Name') }}</th>
+                    <th>{{ __('Pages-text.Stagiaire Email') }}</th>             
                    <th class="text-center" >Actions</th>
 
                 </tr>
@@ -14,6 +14,7 @@
             <tbody id="tbodyresults">
           
                 @foreach($stagiaires as $stagiaire)
+                @unless($stagiaire->hasRole('formateur'))
                     <tr>
                         <td>{{ $stagiaire->name }}</td>
                         <td>{{ $stagiaire->email }}</td>
@@ -23,7 +24,7 @@
                                 <i class="far fa-eye"></i>
                             </a>
                    
-                            <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-default" data-stagiaire-id="{{ $stagiaire->id }}" data-stagiaire-name="{{ $stagiaire->name }}">
+                            <button type="button" class="btn btn-sm btn-danger delete-stagiaire" data-toggle="modal" data-target="#modal-default" data-stagiaire-id="{{ $stagiaire->id }}" data-stagiaire-name="{{ $stagiaire->name }}">
                                 <i class="fa-solid fa-trash"></i>
                             </button>
                         </td>
@@ -33,7 +34,7 @@
                         
                     </tr>
 
-          
+          @endunless
              @endforeach
           
             
@@ -117,7 +118,7 @@
         </div>  
         
          <div class="float-left d-flex">
-            <a href="{{route('export.stagiaires')}}" style="height: 38px;" class="btn btn-default btn-sm">
+            <a href="{{route('export.stagiaires')}}" style="height: 32px;" class="btn btn-default btn-sm">
                 <i class="fa-solid fa-file-export"></i>  {{ __('Pages-text.Export') }}
             </a>
             
